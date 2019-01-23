@@ -1,0 +1,53 @@
+{% extends "index.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="/static/css/show.css">
+    <link rel="stylesheet" href="/static/css/show_expl.css">
+    <script type="text/javascript" defer src="/static/scripts/explore.zombie"></script>{% endblock %}
+
+{% block topbody %}
+  <!-- <div id="debug"></div> --> 
+  <div class="bgscreen n" id="dummy"><small id="bugbug"></small></div>
+  <div class="bgscreen" id="showbox"></div>
+  <div class="n" id="narrow"><small><div class="but pc" id="narrowdown">Choose Flavours</div></small></div> 
+  <div class="bgscreen" id="nwblk"></div>
+  <div id="gurd">
+    <div class="bt2">
+      <small>
+         <div class="but pc" id="enter">Enter</div>
+         <div class="but pc" id="rsbut">Reset to default</div>
+      </small>
+    </div>
+    <form id="dmF" class="nd1 ya n" action="/explore">
+      <label class="ck w0">Horror<input name="horror" type="checkbox" {% if horror %}checked="checked"{% endif %}><span class="checkmark"></span></label>
+      <label class="ck w0">Wet<input name="wet" type="checkbox" {% if wet %}checked="checked"{% endif %}><span class="checkmark"></span></label>
+      <label class="ck w0">Poetic<input name="poetic" type="checkbox" {% if poetic %}checked="checked"{% endif %}><span class="checkmark"></span></label>
+      <label class="ck w0">Weird<input name="weird" type="checkbox" {% if weird %}checked="checked"{% endif %}"><span class="checkmark"></span></label>
+      <input type="hidden" id="sort" name="sort" value="{{ sort }}">
+    </form>
+    <div class="six">
+        <select id="srt">
+          <option {% if sort == 0 %}selected="selected"{% endif %}>Newly added</option>
+          <option {% if sort == 1 %}selected="selected"{% endif %}>Popular</option>
+          <option {% if sort == 2 %}selected="selected"{% endif %}>Latest creation</option>
+          <option {% if sort == 3 %}selected="selected"{% endif %}>Oldest creation</option>
+        </select>
+    </div>
+  </div>{% endblock %}
+
+{% block n0 %}
+          <a href="/">Taste 6</a><br>
+          <span class="crs">Explore</span><br>
+          <a href="/talk">Talk</a><br>{% endblock %}
+
+{% block n1 %}
+          <a href="/about">About & Terms</a><br>
+          <a href="/contact">Contact</a>{% endblock %}
+
+{% block main %}
+    <div id="b" class="b">
+      <div class="z n">
+      </div>
+    </div>{% endblock %}
+
+{% block f %}{% endblock %}

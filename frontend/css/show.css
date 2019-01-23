@@ -1,0 +1,58 @@
+#showbox {
+ z-index: 11;
+ top: 0;
+}
+.title {
+ font-style: italic;
+ color: var(--red5);
+}
+.title:hover {
+ color: var(--red0);
+}
+.year {}
+.who {
+ color: var(--blck);
+}
+.who:hover {
+ color: var(--red0);
+}
+
+.kwcontainer {
+ margin-top: 0.1rem;
+ margin-bottom: 0rem;
+ margin-left: -6px;
+}
+
+.kwcontainer small span {
+ font-size: 13px;
+}
+
+.kwpost .media {
+ cursor:pointer;
+ display: inline-block;
+ text-decoration: none;
+ margin: 6px 6px; 
+ padding-left:0.5rem;padding-right:0.5rem;padding-bottom:1px;padding-top:2px;
+ border: 1px solid #444;  color: var(--blck); 
+ background: none; 
+ outline: none;
+}
+
+.kwpost .media:hover {
+ background: none; color: var(--red5); 
+ border: 1px solid var(--red5); 
+}
+
+.kwpost .media:active {
+ background: var(--red0);  color: var(--whit); 
+ border: 1px solid var(--red0); 
+}
+
+.kwpost .mature {
+ display: inline-block;
+ margin: 6px 6px; 
+ padding-left:0.5rem;padding-right:0.5rem;padding-bottom:1px;padding-top:2px;
+ border: 1px solid #222;  
+ background: #222; 
+ color: #eee;
+}

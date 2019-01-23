@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lykrysh</title>
+    <link rel="icon" type="image/png" href="/static/pics/licorice.png" />
+    <link rel="stylesheet" href="/static/css/common.css">
+    <link rel="stylesheet" href="/static/css/pink.css">
+    <script type="text/javascript" defer src="/static/scripts/jq331.zombie"></script>
+    <script type="text/javascript" defer src="/static/scripts/pink.zombie"></script>{% block head %}{% endblock %}
+  </head>
+  <body>{% block topbody %}{% endblock %}
+    <div id="topguard"></div>
+    <div class="bgscreen" id="navbk"></div>
+    <div id="nav">
+      <small id="hiding">
+        <form><input class="search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" data-gramm="false" type="text" size=16 maxlength=48 value="" placeholder="Search" name="search" /></form>
+        <span class="blck">{% block n0 %}{% endblock %}
+        </span>
+        <br><span class="red3">It's not<br>everyone's candy<br>but maybe yours.</span><br><br>
+        <span class="whit">{% block n1 %}{% endblock %}
+        </span><br><br>
+      </small>
+    </div>
+    <div class="pc n" id="logo"><img src="/static/pics/licorice.png"></div>
+    <div id="main">{% block main %}{% endblock %}</div>{% block f %}{% endblock %}
+  </body>
+</html>

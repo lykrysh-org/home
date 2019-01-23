@@ -1,0 +1,90 @@
+use std::collections::HashMap;
+use actix_web::{
+    AsyncResponder, FutureResponse, HttpRequest,
+    HttpResponse, Path, Error, Query,
+};
+use actix_web::middleware::identity::RequestIdentity;
+use futures::{ future, Future, };
+use crate::api::{ AppState, };
+use crate::show::db::{ TastSixIn, ExplSqlIn, };
+
+pub fn tastesix(req: HttpRequest<AppState>) -> impl Future<Item = HttpResponse, Error = Error> {
+    let ip_id = req.identity().unwrap_or("0".to_owned());
+    req.state()
+        .db
+        .send(TastSixIn{
+            ipid: ip_id.parse().unwrap_or(0),
+        })
+        .from_err()
+        .and_then(move |res| match res {
+            Ok(vec) => {
+                let o = serde_json::to_string(&vec)?; 
+                //println!("{:?}", o);
+                Ok(HttpResponse::Ok().content_type("application/json").body(o).into())   
+            },
+            Err(e) => Err(e),
+        })
+        .responder()
+}
+
+pub fn explsql(
+(req, query) : (HttpRequest<AppState>, Query<HashMap<String, String>>)
+) -> impl Future<Item = HttpResponse, Error = Error> {
+
+    println!("QUERY POST: {:?}", query);
+    let ip_id = req.identity().unwrap_or("0".to_owned());
+
+    let mut categories: Vec<u8> = Vec::new();
+    let mut sort: u8 = 0;
+    let mut media: Option<u8> = None;
+    if query.len() > 0 {
+        if let Some(_) = query.get("horror") {categories.push(0)};
+        if let Some(_) = query.get("wet") {categories.push(1)};
+        if let Some(_) = query.get("poetic") {categories.push(2)};
+        if let Some(_) = query.get("weird") {categories.push(3)};
+        sort = if let Some(_s) = query.get("sort") { _s.parse().unwrap_or(0) } else { 0 };
+        media = match query.get("media") {
+            Some(m) => {
+                let mslic: &str = &m[..];
+                match mslic {
+                    "video" => Some(0),
+                    "photos" => Some(1),
+                    "graphics" => Some(2),
+                    "animation" => Some(3),
+                    _ => None,
+                }
+            },
+            None => None,
+        }
+    }
+    req.state()
+        .db
+        .send(ExplSqlIn{
+            ipid: ip_id.parse().unwrap_or(0),
+            categories: categories,
+            sort: sort,
+            media: media,
+        })
+        .from_err()
+        .and_then(move |res| match res {
+            Ok(vec) => {
+                let o = serde_json::to_string(&vec)?; 
+                //println!("{:?}", o);
+                Ok(HttpResponse::Ok().content_type("application/json").body(o).into())   
+            },
+            Err(e) => Err(e),
+        })
+        .responder()
+}
+
+#[derive(Deserialize)]
+pub struct ShowParams {
+    sid: i32,
+}
+
+pub fn show(
+(req, param): (HttpRequest<AppState>, Path<ShowParams>)
+) -> FutureResponse<HttpResponse> {
+    println!("{:?} {}", req, param.sid);
+    Box::new(future::ok(HttpResponse::Ok().finish()))
+}

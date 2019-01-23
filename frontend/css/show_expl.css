@@ -1,0 +1,325 @@
+body {
+ background: var(--whit); 
+ color: var(--blck); 
+}
+.but {
+ color: var(--bsod); 
+ background: var(--red1); 
+}
+.but:hover {
+ color: var(--blck); 
+ background: var(--red2); 
+}
+
+/* THUMBNAILS*/
+
+.b {
+  background: none;
+  width: calc(100% - 3.1rem);
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  margin-top: 72px;
+  margin-bottom: 3rem;
+  min-height: 100vh; 
+}
+.b .z {
+  display: grid;
+  grid-column-gap: 1.5rem;
+  grid-row-gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(10.5rem, 1fr));
+  justify-content: left;
+  align-content: left;
+  width: calc(100% - 0px);
+}
+.b .z .e {
+  border: 0;
+  vertical-align: top;
+  text-align: left;
+  padding-left: 0px; padding-right: 0px; padding-top: 0px; padding-bottom: 0rem;
+
+}
+.b .z .e .trans {
+  height: 0;
+}
+.b .z .e p {
+  font-size: 13px;
+  line-height: 21px;
+}
+.b .z .e small {
+  font-size: 13px;
+  line-height: 21px;
+}
+
+.clk {
+}
+.clk a { text-decoration: none; }
+.clk p {
+  color: #666;
+  margin-top:0.6rem;
+  margin-bottom: 0.1rem;
+}
+.clk .edges img {
+  width: 100%; 
+  -webkit-filter: contrast(150%) brightness(60%) grayscale(100%); 
+  filter: contrast(150%) brightness(60%) grayscale(100%);
+}
+
+.clk .container {
+  display:-webkit-box;
+  display:-ms-flexbox;
+  display:flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  justify-content: center;
+}
+.clk .container .item {
+  position: absolute;
+  z-index: 4;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 100%;
+  border:2px solid #fff;
+  background-image: url("/static/pics/play_off.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.0;
+  -webkit-transition: opacity 0.3s ease-out;
+  transition: opacity 0.3s ease-out;
+}
+.clk .container:hover .item {
+  opacity: 0.7;
+}
+.clk .container:active .item {
+  opacity: 1.0;
+}
+.clk .container:hover img {
+  -webkit-filter: brightness(60%); 
+  filter: brightness(60%);
+}
+.clk .container:active img {
+  -webkit-filter: brightness(70%); 
+  filter: brightness(70%);
+}
+
+.clk small {
+}
+.clk .intro {
+ color: #555;
+ display: inline-block;
+ word-break: break-all;
+}
+
+.limited {
+ pointer-events:none; 
+ position: relative;
+ z-index: 2;
+ background-image: url("/static/pics/limited2.png");
+ background-repeat: no-repeat;
+ background-position: center;
+ background-size: cover;
+ float: right;
+ top: 0; right: -0.6rem;
+ width: 60px;
+ height: 60px;
+ margin-top: calc(-18rem);
+ opacity: 0.6;
+}
+
+#nwblk,
+#gurd {
+ display:none;
+}
+
+#narrow {
+ position: fixed;
+ z-index: 10;
+ right: 1.6rem; top: 1.5rem;
+}
+
+#narrow .bbk {
+ text-decoration: line-through;
+}
+#nwblk {
+ z-index: 5;
+ top: 0;
+ background: linear-gradient(to right, rgba(255,255,255,0.9),white,rgba(255,255,255,0.9));
+ cursor:not-allowed;
+}
+#gurd {
+ position: fixed;
+ z-index: 6;
+ top: 0; left: calc(50% - 7.25rem);
+ width: 14.5rem; height: 100vh;
+ background-repeat: no-repeat;
+ background-position: top;
+ background-size: 100% 100%;
+ background-image: url('/static/pics/blck.png');
+}
+
+#gurd form {
+ margin-top: 104px;
+ margin-left: 1.5rem;
+ margin-right: 1.5rem;
+}
+#gurd .bt2 {
+ position: absolute;
+ z-index: 7;
+ width: 100%;
+ bottom: 2.5rem; 
+ text-align: center;
+}
+#gurd .bt2 small {
+ font-size: 13px;
+}
+#gurd .bt2 .but {
+ width: 10.5rem;
+ margin: 0 auto;
+ margin-top:1.4rem;
+}
+#gurd .bt2 #enter {
+ pointer-events: none;
+}
+#gurd .bt2 #enter.ent {
+ color: var(--whit); 
+ background: var(--blck); 
+}
+#gurd .bt2 #enter.ent:hover {
+ color: var(--whit); 
+ background: var(--red5); 
+}
+#gurd .ya {
+ font-size: 32px;
+ line-height: 42px;
+}
+
+
+/* CHECKBOX */
+
+
+.w0 {
+  width: 10rem;
+}
+
+.ck {
+  display: block;
+  position: relative;
+  padding-left: 2.4rem; 
+  margin: 0.25rem 0; 
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.ck input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+.checkmark {
+  position: absolute;
+  top: 6px;
+  left: 0;
+  height: 28px;
+  width: 28px;
+  background-color: #ffebee;
+  -webkit-transition: background-color 0.6s ease-out;
+  transition: background-color 0.6s ease-out;
+}
+.ck:hover {
+ color: var(--red5); 
+}
+
+.ck:hover input ~ .checkmark {
+  background-color: #ffebee; 
+}
+
+.ck input:checked ~ .checkmark {
+  background-color: var(--whit); 
+}
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+.ck input:checked ~ .checkmark:after {
+  display: block;
+}
+.ck .checkmark:after {
+  left: 0.4rem;
+  top: -1px;
+  width: 0.6rem;
+  height: 1.2rem;
+  border: solid black;
+  border-width: 0 4px 4px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.ck:hover input:checked ~ .checkmark:after {
+  border: solid var(--red5); 
+  border-width: 0 4px 4px 0;
+}
+
+/* DROPDOWN */
+.six {
+  z-index: 8;
+  position: relative;
+  text-align: center;
+}
+
+.sr {
+  cursor: pointer;
+  position: relative;
+  font-size: 13px;
+  line-height: 36px;
+  width: 11.5rem;
+  text-align: left;
+  text-indent: 10px;
+  margin: 0 auto;
+  margin-top: 42px;
+  color: var(--blck); 
+}
+.sr .d_s {
+  z-index: 0;
+  position: relative;
+  background: var(--red2); 
+  color: var(--blck); 
+  height: 32px;
+  line-height: 34px;
+}
+.sr .d_o {
+  display: none;
+  z-index: 1;
+  position: absolute;
+  background: var(--red1); 
+  color: vvar(--bsod); 
+  top: 0rem;
+  left: 0;
+  right: 0;
+}
+.sr .d_p {
+  display: block;
+  height: 32px;
+  line-height: 34px;
+  width: 100%;
+}
+.sr .d_p:hover {
+  background: var(--red2); 
+  color: var(--blck); 
+}
+.sr .d_a {
+  position: absolute;
+  right: 4px;
+  top: 7px;
+  width: 1.2rem; height: 1.2rem;
+  background: url("../pics/arrowdownblack.png") no-repeat;
+  background-size: 1.2rem 1.2rem;
+}
+.sr:hover .d_a {
+}
+.sr .d_a.active {
+  background: url("../pics/dummy.png") no-repeat;
+  background-size: 1.1rem 1.1rem;
+}

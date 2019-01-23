@@ -1,0 +1,11 @@
+  <img class="trans" src="/static/pics/trans.png">
+  <div class="clk">
+    <div class="container edges">
+      <span class="item"></span>
+    </div>
+    <p class="lnp serious"></p>
+    <small class="intro serious edges"></small>
+    <div class="kwcontainer kwpost">
+      <small class="square"></small>
+    </div>
+  </div>

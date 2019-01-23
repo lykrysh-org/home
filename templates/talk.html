@@ -1,0 +1,32 @@
+{% extends "index.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="/static/css/talk.css">
+    <script type="text/javascript" defer src="/static/scripts/talk.zombie"></script>{% endblock %}
+
+{% block topbody %}
+  <!-- <div id="debug"></div> -->  
+  <div class="bgscreen n" id="dummy"><small id="bugbug"></small></div>
+  <div class="n" id="tweet"><small><div class="but pc" id="newpost">Add New Post</div></small></div>
+  <div class="bgscreen" id="newblk"></div>
+  <div id="guard">
+    {% include "talk_form_1.html" %}
+  </div>{% endblock %}
+
+{% block n0 %}
+          <a href="/">Taste 6</a><br>
+          <a href="/explore">Explore</a><br>
+          <span class="crs">Talk</span><br>{% endblock %}
+
+{% block n1 %}
+          <a href="/about">About & Terms</a><br>
+          <a href="/contact">Contact</a>{% endblock %}
+
+{% block main %}
+  {% include "talk_form_2.html" %}
+  <div id="notes">
+    <span id="nomore"></span>
+    <ul></ul>
+  </div>{% endblock %}
+
+{% block f %}{% endblock %}

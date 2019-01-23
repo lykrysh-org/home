@@ -1,0 +1,26 @@
+{% extends "index.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="/static/css/show.css">
+    <link rel="stylesheet" href="/static/css/show_taste.css">
+    <script type="text/javascript" defer src="/static/scripts/first6.zombie"></script>{% endblock %}
+
+{% block topbody %}
+    <div class="bgscreen" id="showbox"></div>
+    <div class="n" id="arrs">
+      <div class="oo pc" id="up"><img src="/static/pics/arrs.png"></div>
+      <div class="oo pc" id="dn"><img src="/static/pics/arrs.png"></div>
+    </div>{% endblock %}
+
+{% block n0 %}
+          <span class="crs">Taste 6</span><br>
+          <a href="/explore">Explore</a><br>
+          <a href="/talk">Talk</a><br>{% endblock %}
+
+{% block n1 %}
+          <a href="/about">About & Terms</a><br>
+          <a href="/contact">Contact</a>{% endblock %}
+
+{% block main %}{% endblock %}
+
+{% block f %}{% endblock %}

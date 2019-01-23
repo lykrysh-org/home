@@ -1,0 +1,42 @@
+$(document).ready(function() {
+  $(window).on("unload", function() {
+    $('#nav #hiding').hide();
+    $('#nav').removeClass("on");
+    $('#logo').removeClass("rot");
+    //$(window).scrollTop(0);
+  });
+
+  $('#logo').click(function(){
+    $(this).toggleClass("rot");
+    var hd = $('#nav #hiding');
+    if ( $('#nav').hasClass("on") ) {
+      $('#navbk').hide();    
+      $.when( hd.hide() ).then(   
+        $('#nav').removeClass("on")
+      );
+    } else {
+      $.when( $('#nav').addClass("on") ).then(
+        setTimeout(function() {
+          $('#navbk').show();
+          hd.fadeIn("slow");
+          hd.find("input[name=search]")[0].focus();
+        }, 400)
+      );    
+    }
+  });
+
+  $('#navbk').click(function() {
+    $('#logo').toggleClass("rot");
+    $.when( $('#nav #hiding').hide() ).then(       
+        $('#nav').removeClass("on")
+    );
+    $(this).hide();
+  });
+
+  $(document).mousemove(function(e){
+    var bb = $('#dummy #bugbug');
+    if (! bb.is(':empty')) {
+      setTimeout(function(){bb.text("")}, 800);
+    }
+  });
+});
