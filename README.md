@@ -1,4 +1,5 @@
 # home
+[![Build Status](https://travis-ci.com/lykrysh/home.svg?branch=develop)](https://travis-ci.com/lykrysh/home)
 
 ### dependency
 
