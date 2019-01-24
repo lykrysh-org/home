@@ -127,4 +127,3 @@ pub fn show(
             })
             .responder()
 }
-

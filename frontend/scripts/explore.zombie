@@ -80,12 +80,13 @@ $(document).ready(function() {
           url: "/z/" + sid,
           method : "POST",
           success: function(data){
+            var lnp = clk.children('.lnp');
             var temp = $('<p class="serious"></p>');
-            clk.children('.lnp').children('.who').each(function(i) {
+            lnp.children('.who').each(function(i) {
               temp.append($(this).text() + ', ');
             });
-            temp.append('<span class="red1"><i>' + clk.children('.lnp').children('.title').text() + '</i></span>, ');
-            temp.append(clk.children('.lnp').children('.year').text() + '<br>');
+            temp.append('<span class="red1"><i>' + lnp.children('.title').text() + '</i></span>, ');
+            temp.append(lnp.children('.year').text() + '<br>');
             if (data.mediahost.trim().length > 0) temp.append(data.mediahost  + '<br>');
             if (data.mediaid.trim().length > 0) temp.append(data.mediaid  + '<br>');
             if (data.reference.trim().length > 0) temp.append('REFERENCE: ' + data.reference  + '<br>');

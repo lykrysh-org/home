@@ -15,6 +15,7 @@ $(document).ready(function() {
           main.append('<section class="slide n" style="background-image: url(/stuff/thumbnails/' + this.oneshow.imgnum + '.png)"></section>');
           var section = main.children('.slide').last();
           var makers = this.makers;
+          var sid = this.oneshow.id;
           var title = this.oneshow.title;
           var year = this.oneshow.year;
           var intro = this.oneshow.intro;
@@ -25,9 +26,10 @@ $(document).ready(function() {
           var anime = this.oneshow.anime;
           var sculp = this.oneshow.sculp;
           section.load('/static/scripts/first6_section.zombie', function() {
+            section.children('.sid').text(sid);
             var txt = section.children(".txt");
             for (i = 0; i < makers.length; i++) { 
-              txt.children(".ln1").append('<span class="who pc" onclick="">' + makers[i] + '</span>, ');
+              txt.children(".ln1").append('<span class="who pc">' + makers[i] + '</span>, ');
             };
             txt.children(".ln1").append('<span class="title pc">' + title + '</span>, <span class="year">' + year + '</span>');
             txt.children(".ln2").text(intro);
@@ -46,6 +48,41 @@ $(document).ready(function() {
       }
     });
   }
+
+  $('#main').on('click', '.slide .area', function(e) {
+    var area = $(this);
+    var slide = $(this).parent();
+    var showbox = $('#showbox');
+    $('#showbox').fadeIn();
+    var sid = slide.children('.sid').text();
+    $.ajax({
+          url: "/z/" + sid,
+          method : "POST",
+          success: function(data){
+            var ln1 = slide.children('.txt').children('.ln1');
+            var temp = $('<p class="serious"></p>');
+            ln1.children('.who').each(function(i) {
+              temp.append($(this).text() + ', ');
+            });
+            temp.append('<span class="red1"><i>' + ln1.children('.title').text() + '</i></span>, ');
+            temp.append(ln1.children('.year').text() + '<br>');
+            if (data.mediahost.trim().length > 0) temp.append(data.mediahost  + '<br>');
+            if (data.mediaid.trim().length > 0) temp.append(data.mediaid  + '<br>');
+            if (data.reference.trim().length > 0) temp.append('REFERENCE: ' + data.reference  + '<br>');
+            showbox.append(temp);
+          },
+          error: function(e){
+            //alert(e);
+          }
+    });
+        e.preventDefault();
+        return false;
+  });
+
+  $('#showbox').click(function() {
+    $(this).html('');
+    $(this).hide();
+  });
 
   function initid() {
     //$('#debug').text(document.cookie);   
@@ -138,27 +175,6 @@ $(document).ready(function() {
     $('#main #track').text(num);
     var ypos = ($(window).height()) * num;
     $('html, body').scrollTop(ypos);
-  });
-
-  $('#main').on('click', '.slide .area', function(e) {
-    $('#showbox').fadeIn();
-    var sid = 1234;
-    $.ajax({
-          url: "/shows/" + sid,
-          method : "POST",
-          success: function(response){
-            //alert("yey");
-          },
-          error: function(e){
-            //alert(e);
-          }
-    });
-        e.preventDefault();
-        return false;
-  });
-
-  $('#showbox').click(function() {
-    $(this).hide();
   });
 
   $('#main').on('click', '.slide .txt .kwpost .square .media', function(e) {
