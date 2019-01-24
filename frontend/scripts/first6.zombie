@@ -12,7 +12,7 @@ $(document).ready(function() {
       success: function(data){
         var main = $('#main');
         $.each(data, function(entryIndex, entry) {
-          main.append('<section class="slide" style="background-image: url(/stuff/thumbnails/' + this.oneshow.imgnum + '.png)"></section>');
+          main.append('<section class="slide n" style="background-image: url(/stuff/thumbnails/' + this.oneshow.imgnum + '.png)"></section>');
           var section = main.children('.slide').last();
           var makers = this.makers;
           var title = this.oneshow.title;

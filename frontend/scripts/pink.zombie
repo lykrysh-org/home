@@ -39,4 +39,12 @@ $(document).ready(function() {
       setTimeout(function(){bb.text("")}, 800);
     }
   });
+
+  $('#main').bind("cut copy paste",function(e) {
+    e.preventDefault();
+  });
+
+  $('#main').on('contextmenu', 'img', function(e){ 
+    return false; 
+  });
 });
