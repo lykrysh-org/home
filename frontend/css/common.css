@@ -10,7 +10,6 @@
  width: 4rem; height: 4rem;
 }
 
-
 html {
  -webkit-text-size-adjust: 100%;
 }
@@ -101,7 +100,7 @@ small .but {
         -ms-user-select: none;
             user-select: none;
 }
-.
+
 .red1 {
  color: var(--red1); 
 }

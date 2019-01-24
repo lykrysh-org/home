@@ -15,6 +15,7 @@ $(document).ready(function() {
 
           var temp = $('<div class="e n"></div>');
           var makers = this.makers;
+          var sid = this.oneshow.id;
           var imgnum = this.oneshow.imgnum;
           var title = this.oneshow.title;
           var year = this.oneshow.year;
@@ -32,10 +33,11 @@ $(document).ready(function() {
               trans.css('height', Math.floor(Math.random()*100));
             };
             var clk = temp.children('.clk');
+            clk.children('.sid').text(sid);
             clk.children('.container').append('<img src="/stuff/thumbnails/' + imgnum + '.png">');
             var lnp = clk.children('.lnp');            
             for (i = 0; i < makers.length; i++) { 
-              lnp.append('<span class="who pc" onclick="">' + makers[i] + '</span>, ');
+              lnp.append('<span class="who pc">' + makers[i] + '</span>, ');
             };
             lnp.append('<span class="title pc">' + title + '</span>, <span class="year">' + year + '</span>, ');
             clk.children('.intro').text(intro);
@@ -67,6 +69,40 @@ $(document).ready(function() {
       }
     });
   };
+
+  $('#main #b .z').on('click', '.e .clk .container', function(e) {
+    var container = $(this);
+    var clk = $(this).parent();
+    var showbox = $('#showbox');
+    showbox.fadeIn();
+    var sid = clk.children('.sid').text();
+    $.ajax({
+          url: "/z/" + sid,
+          method : "POST",
+          success: function(data){
+            var temp = $('<p class="serious"></p>');
+            clk.children('.lnp').children('.who').each(function(i) {
+              temp.append($(this).text() + ', ');
+            });
+            temp.append('<span class="red1"><i>' + clk.children('.lnp').children('.title').text() + '</i></span>, ');
+            temp.append(clk.children('.lnp').children('.year').text() + '<br>');
+            if (data.mediahost.trim().length > 0) temp.append(data.mediahost  + '<br>');
+            if (data.mediaid.trim().length > 0) temp.append(data.mediaid  + '<br>');
+            if (data.reference.trim().length > 0) temp.append('REFERENCE: ' + data.reference  + '<br>');
+            showbox.append(temp);
+          },
+          error: function(e){
+            //alert(e);
+          }
+    });
+        e.preventDefault();
+        return false;
+  });
+
+  $('#showbox').click(function() {
+    $(this).html('');
+    $(this).hide();
+  });
 
   // randomize top margin
 
@@ -179,27 +215,6 @@ $(document).ready(function() {
         window.location.replace(togo);
       }
     } 
-  });
-
-  $('#main #b .z').on('click', '.e .clk .container', function(e) {
-    $('#showbox').fadeIn();
-    var sid = 1234;
-    $.ajax({
-          url: "/z/" + sid,
-          method : "POST",
-          success: function(response){
-            //alert("yey");
-          },
-          error: function(e){
-            //alert(e);
-          }
-    });
-        e.preventDefault();
-        return false;
-  });
-
-  $('#showbox').click(function() {
-    $(this).hide();
   });
 
   b("#srt");

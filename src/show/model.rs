@@ -42,6 +42,17 @@ pub struct AllShows {
     pub media: Option<u8>,
 }
 
+#[derive(Identifiable, Queryable, Associations, PartialEq, Debug)]
+#[belongs_to(Show, foreign_key = "showid")]
+#[table_name="spages"]
+pub struct Page {
+    pub id: i32,
+    pub showid: i32,
+    pub mediahost: Option<String>,
+    pub mediaid: Option<String>,
+    pub reference: Option<String>,
+}
+
 impl Show {
 
     // return 6 shows after analysing ipid history
@@ -101,11 +112,24 @@ impl Show {
         qr.load::<Show>(conn)
     }
 
+    pub fn get_show(conn: &PgConnection, sid: &i32) -> QueryResult<Show> {
+        use crate::schema::shows::dsl::*;
+        shows
+            .filter(id.eq(sid))
+            .first::<Show>(conn)
+    }
+
     pub fn get_makers(conn: &PgConnection, show: &Show) -> Vec<String> {
         use crate::schema::smakers::dsl::*;
         return Maker::belonging_to(show)
         .select(name)
         .load::<String>(conn)
         .expect("Error loading makers")
+    }
+
+    pub fn get_page(conn: &PgConnection, show: &Show) -> Page {
+        return Page::belonging_to(show)
+        .first::<Page>(conn)
+        .expect("Error getting page")
     }
 }

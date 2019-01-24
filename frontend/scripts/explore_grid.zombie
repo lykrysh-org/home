@@ -1,5 +1,6 @@
   <img class="trans" src="/static/pics/trans.png">
   <div class="clk">
+    <span class="sid"></span>
     <div class="container edges">
       <span class="item"></span>
     </div>

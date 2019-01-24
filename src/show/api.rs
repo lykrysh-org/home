@@ -4,9 +4,9 @@ use actix_web::{
     HttpResponse, Path, Error, Query,
 };
 use actix_web::middleware::identity::RequestIdentity;
-use futures::{ future, Future, };
+use futures::{ Future, };
 use crate::api::{ AppState, };
-use crate::show::db::{ TastSixIn, ExplSqlIn, };
+use crate::show::db::{ TastSixIn, ExplSqlIn, PageIn, };
 
 pub fn tastesix(req: HttpRequest<AppState>) -> impl Future<Item = HttpResponse, Error = Error> {
     let ip_id = req.identity().unwrap_or("0".to_owned());
@@ -82,9 +82,49 @@ pub struct ShowParams {
     sid: i32,
 }
 
+#[derive(Serialize)]
+struct PageJ {
+    mediahost: String,
+    mediaid: String,
+    reference: String,
+}
+
 pub fn show(
 (req, param): (HttpRequest<AppState>, Path<ShowParams>)
 ) -> FutureResponse<HttpResponse> {
     println!("{:?} {}", req, param.sid);
-    Box::new(future::ok(HttpResponse::Ok().finish()))
+    let ip_id = req.identity().unwrap_or("0".to_owned());
+    req.state()
+        .db
+            .send(PageIn {
+                ipid: ip_id.parse().unwrap_or(0),
+                id: param.sid,
+            })
+            .from_err()
+            .and_then(move |res| match res {
+                Ok(_out) => {
+                    let host: String = match _out.mediahost {
+                        Some(h) => h.to_string(),
+                        None => "".to_string(),
+                    };
+                    let mid: String = match _out.mediaid {
+                        Some(i) => i.to_string(),
+                        None => "".to_string(),
+                    };
+                    let fere: String = match _out.reference {
+                        Some(r) => r.to_string(),
+                        None => "".to_string(),
+                    };
+                    let j = PageJ {
+                        mediahost: host,
+                        mediaid: mid,
+                        reference: fere,
+                    };
+                    let o = serde_json::to_string(&j)?;
+                    Ok(HttpResponse::Ok().content_type("application/json").body(o).into())
+                },
+                Err(e) => Err(e),
+            })
+            .responder()
 }
+

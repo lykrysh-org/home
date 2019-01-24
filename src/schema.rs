@@ -101,7 +101,7 @@ table! {
         showid -> Int4,
         mediahost -> Nullable<Varchar>,
         mediaid -> Nullable<Varchar>,
-        paragraph -> Nullable<Varchar>,
+        reference -> Nullable<Varchar>,
     }
 }
 

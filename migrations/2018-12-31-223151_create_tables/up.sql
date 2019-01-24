@@ -91,6 +91,6 @@ create table spages (
   showid int not null,
   mediahost VARCHAR default null,
   mediaid VARCHAR default null,
-  paragraph VARCHAR default null,
+  reference VARCHAR default null,
   foreign key (showid) references shows(id) on delete cascade
 );

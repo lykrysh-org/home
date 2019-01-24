@@ -2,7 +2,7 @@ use std::ops::Deref;
 use actix::prelude::{ Handler, Message, };
 use actix_web::{ Error, error, };
 use crate::db::{ DbExecutor };
-use crate::show::model::{ Show, AllShows, };
+use crate::show::model::{ Show, AllShows, Page, };
 
 #[derive(Serialize)]
 pub struct OneShowOut {
@@ -74,6 +74,30 @@ impl Handler<ExplSqlIn> for DbExecutor {
                     })
                 }
                 Ok(v)
+            },
+            Err(e) => Err(e),
+        } 
+    }
+}
+
+pub struct PageIn {
+    pub ipid: i32,
+    pub id: i32,
+}
+
+impl Message for PageIn {
+    type Result = Result<Page, Error>;
+}
+
+impl Handler<PageIn> for DbExecutor {
+    type Result = Result<Page, Error>;
+
+    fn handle(&mut self, _in: PageIn, _: &mut Self::Context) -> Self::Result {
+        let theshow = Show::get_show(self.get_conn()?.deref(), &_in.id)
+            .map_err(|_| error::ErrorInternalServerError("Error get the show"));
+        match theshow {
+            Ok(show) => {    
+                Ok(Show::get_page(self.get_conn()?.deref(), &show))
             },
             Err(e) => Err(e),
         } 
