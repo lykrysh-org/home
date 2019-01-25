@@ -1,7 +1,32 @@
+.txt {
+ position: relative;
+ width:  calc(100% - 4rem);
+ max-width: calc(640px - 4rem);
+ padding: 0 2rem;
+ padding-top: 21px;
+ margin: 0 auto;
+ text-align: center;
+ overflow: hidden;
+}
+.txt .ln1, .txt .ln2 {
+ display: block;
+ white-space: nowrap; 
+ overflow: hidden;
+ text-overflow:ellipsis;
+}
+.txt .ln2 {
+ color: var(--dots); 
+}
+
 #showbox {
  z-index: 11;
  top: 0;
  color: var(--whit);
+ text-align: center;
+}
+#showbox .lower {
+ z-index: 12;
+ margin-top: calc(100vh - 10rem);
 }
 
 .sid { display: none;}

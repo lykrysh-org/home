@@ -82,15 +82,19 @@ $(document).ready(function() {
           method : "POST",
           success: function(data){
             var lnp = clk.children('.lnp');
-            var temp = $('<p class="serious"></p>');
+            var temp = $('<div class="txt lower"></div>');
+            temp.append('<small class="ln1 serious"></small>');
+            var myln1 = temp.children('.ln1');
             lnp.children('.who').each(function(i) {
-              temp.append($(this).text() + ', ');
+              myln1.append($(this).text() + ', ');
             });
-            temp.append('<span class="red1"><i>' + lnp.children('.title').text() + '</i></span>, ');
-            temp.append(lnp.children('.year').text() + '<br>');
-            if (data.mediahost.trim().length > 0) temp.append(data.mediahost  + '<br>');
-            if (data.mediaid.trim().length > 0) temp.append(data.mediaid  + '<br>');
-            if (data.reference.trim().length > 0) temp.append('REFERENCE: ' + data.reference  + '<br>');
+            myln1.append('<span class="red1"><i>' + lnp.children('.title').text() + '</i></span>, ');
+            myln1.append(lnp.children('.year').text());
+            if (data.reference.trim().length > 0) {
+              temp.append('<small class="ln2 serious"></small>');
+              var myln2 = temp.children('.ln2');
+              myln2.append('REFERENCE: ' + data.reference);
+            }
             showbox.append(temp);
           },
           error: function(e){

@@ -60,21 +60,6 @@ body {
  height: 100%;
 }
 #main .slide .txt {
- position: relative;
  z-index: 2;
- width:  calc(100% - 4rem);
- max-width: calc(640px - 4rem);
- padding: 0 2rem;
- padding-top: 21px;
- text-align: center;
- overflow: hidden;
 }
-#main .slide .txt .ln1, #main .slide .txt .ln2 {
- display: block;
- white-space: nowrap; 
- overflow: hidden;
- text-overflow:ellipsis;
-}
-#main .slide .txt .ln2 {
- color: var(--dots); 
-}
+
