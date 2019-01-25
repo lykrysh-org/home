@@ -1,0 +1,38 @@
+function getCook(cookiename) {
+  var cookiestring=RegExp(""+cookiename+"[^;]+").exec(document.cookie);
+  return decodeURIComponent(!!cookiestring ? cookiestring.toString().replace(/^[^=]+./,"") : "");
+}
+
+$(document).ready(function() {
+
+  $(window).on('load', function(){
+    if (window.location.search == "?box") {
+      var addr = getCook('r');
+      //alert(window.location.search + " " + addr);
+      var showbox = $('#showbox');
+      if (addr.length > 1) { // '/'
+        window.location.replace(addr);
+      } else {
+        history.replaceState(null, null, addr);
+      }
+      showbox.html('');
+      showbox.hide();
+    }
+  });
+
+  $('#showbox').click(function() {
+    var showbox = $(this);
+    history.replaceState(null, null, showbox.data("url"));
+    showbox.html('');
+    showbox.hide();
+  });
+
+  $('#showbox').on('mouseenter', '.txt #gobk', function() {
+    $(this).addClass("prssd");
+  });
+
+  $('#showbox').on('mouseleave', '.txt #gobk', function() {
+    $(this).removeClass("prssd");
+  });
+
+});

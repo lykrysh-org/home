@@ -3,12 +3,13 @@
 {% block head %}
     <link rel="stylesheet" href="/static/css/show.css">
     <link rel="stylesheet" href="/static/css/show_expl.css">
+    <script type="text/javascript" defer src="/static/scripts/show.zombie"></script>
     <script type="text/javascript" defer src="/static/scripts/explore.zombie"></script>{% endblock %}
 
 {% block topbody %}
   <!-- <div id="debug"></div> --> 
   <div class="bgscreen n" id="dummy"><small id="bugbug"></small></div>
-  <div class="bgscreen" id="showbox"></div>
+  <div class="bgscreen" id="showbox" data-url="/explore" data-sid=0></div>
   <div class="n" id="narrow"><small><div class="but pc" id="narrowdown">Choose Flavours</div></small></div> 
   <div class="bgscreen" id="nwblk"></div>
   <div id="gurd">

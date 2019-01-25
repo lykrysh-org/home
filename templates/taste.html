@@ -3,10 +3,11 @@
 {% block head %}
     <link rel="stylesheet" href="/static/css/show.css">
     <link rel="stylesheet" href="/static/css/show_taste.css">
+    <script type="text/javascript" defer src="/static/scripts/show.zombie"></script>
     <script type="text/javascript" defer src="/static/scripts/first6.zombie"></script>{% endblock %}
 
 {% block topbody %}
-    <div class="bgscreen" id="showbox"></div>
+    <div class="bgscreen" id="showbox" data-url="/"></div>
     <div class="n" id="arrs">
       <div class="oo pc" id="up"><img src="/static/pics/arrs.png"></div>
       <div class="oo pc" id="dn"><img src="/static/pics/arrs.png"></div>

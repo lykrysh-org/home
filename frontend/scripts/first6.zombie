@@ -1,8 +1,6 @@
 $(document).ready(function() {
   var TOTALNUM = 5;
-  $.when( tastesix() ).then(   
-    initid()
-  );
+  $.when( tastesix() ).then( initid() );
 
   function tastesix() {
     $.ajax({
@@ -11,8 +9,7 @@ $(document).ready(function() {
       success: function(data){
         var main = $('#main');
         $.each(data, function(entryIndex, entry) {
-          main.append('<section class="slide n" style="background-image: url(/stuff/thumbnails/' + this.oneshow.imgnum + '.png)"></section>');
-          var section = main.children('.slide').last();
+          var temp = $('<section class="slide n" style="background-image: url(/stuff/thumbnails/' + this.oneshow.imgnum + '.png)"></section>');
           var makers = this.makers;
           var sid = this.oneshow.id;
           var title = this.oneshow.title;
@@ -24,9 +21,9 @@ $(document).ready(function() {
           var graph = this.oneshow.graph;
           var anime = this.oneshow.anime;
           var sculp = this.oneshow.sculp;
-          section.load('/static/scripts/first6_section.zombie', function() {
-            section.children('.sid').text(sid);
-            var txt = section.children(".txt");
+          temp.load('/static/scripts/first6_section.zombie', function() {
+            temp.children('.sid').text(sid);
+            var txt = temp.children(".txt");
             for (i = 0; i < makers.length; i++) { 
               txt.children(".ln1").append('<span class="who pc">' + makers[i] + '</span>, ');
             };
@@ -40,8 +37,9 @@ $(document).ready(function() {
             if (anime) { mediabut.append('<span class="media">Animation</span>') };
             if (sculp) { mediabut.append('<span class="media">Sculpture</span>') };
           });
+          main.append(temp);
         });
-        history.replaceState(null, null, window.location.href);
+        history.pushState(null, null, window.location.href);
       },
       error: function(e){
         alert(e);
@@ -49,11 +47,71 @@ $(document).ready(function() {
     });
   }
 
+  function initid() {
+    var id = getCook('y');
+    if (id.length < 1) {
+      id = 0; 
+      document.cookie = "y" + "=" + id;
+    }
+    var ypos = $(window).height() * id;
+    $("html, body").animate({ scrollTop: ypos }, 30);
+  }
+
+  window.onpopstate = function(e){
+    var showbox = $('#showbox');
+    var state = e.state || {foo: 'no state'};
+    if (state.foo == "box") {
+      t_bkfw();
+      // alert("1: " + history.state.foo); // 1: box
+    } else {
+      showbox.html('');
+      showbox.hide();
+    }
+  };
+
+  // for back - forward button
+
+  function t_bkfw() {
+    var n = parseInt(getCook('y'));
+    var myslide = $('#main .slide').eq(n);
+    var showbox = $('#showbox');
+    showbox.show();
+    var sid = myslide.children('.sid').text();
+    $.ajax({
+          url: "/z/" + sid,
+          method : "POST",
+          success: function(data){
+            var ln1 = myslide.children('.txt').children('.ln1');
+            var temp = $('<div class="txt lower"></div>');
+            temp.append('<small class="ln1 serious"></small>');
+            var myln1 = temp.children('.ln1');
+            ln1.children('.who').each(function(i) {
+              myln1.append($(this).text() + ', ');
+            });
+            myln1.append('<span class="red1"><i>' + ln1.children('.title').text() + '</i></span>, ');
+            myln1.append(ln1.children('.year').text());
+            if (data.reference.trim().length > 0) {
+              temp.append('<small class="ln2 serious"></small>');
+              var myln2 = temp.children('.ln2');
+              myln2.append('REFERENCE: ' + data.reference);
+            }
+            temp.append('<div class="pc n" id="gobk"><img src="/static/pics/arrs.png"></div>')
+            showbox.append(temp);
+          },
+          error: function(e){
+            //alert(e);
+          }
+      });
+  }
+
+// if (data.mediahost.trim().length > 0) temp.append(data.mediahost  + '<br>');
+// if (data.mediaid.trim().length > 0) temp.append(data.mediaid  + '<br>');
+
   $('#main').on('click', '.slide .area', function(e) {
     var area = $(this);
     var slide = $(this).parent();
     var showbox = $('#showbox');
-    $('#showbox').fadeIn();
+    showbox.show();
     var sid = slide.children('.sid').text();
     $.ajax({
           url: "/z/" + sid,
@@ -73,28 +131,18 @@ $(document).ready(function() {
               var myln2 = temp.children('.ln2');
               myln2.append('REFERENCE: ' + data.reference);
             }
+            temp.append('<div class="pc n" id="gobk"><img src="/static/pics/arrs.png"></div>')
             showbox.append(temp);
+            history.pushState({ foo: "box" }, null, "/?box");
           },
-          error: function(e){
-            //alert(e);
+          error: function(err){
+            //alert(err);
           }
     });
-        e.preventDefault();
-        return false;
+    document.cookie = "r" + "=/";
+    e.preventDefault();
+    return false;
   });
-
-  $('#showbox').click(function() {
-    $(this).html('');
-    $(this).hide();
-  });
-
-  function initid() {
-    //$('#debug').text(document.cookie);   
-    var id = document.cookie.substring(2);
-    if (id.length < 1) id = 0; 
-    var ypos = $(window).height() * id;
-    $("html, body").animate({ scrollTop: ypos },30);
-  }
 
   function getcurid() {
     var st = $(document).scrollTop();
@@ -186,4 +234,5 @@ $(document).ready(function() {
     var togo = "/explore?media=" + which;
     window.location.replace(togo);
   });
+
 });

@@ -1,5 +1,4 @@
 $(document).ready(function() {
-  history.replaceState(null, null, window.location.href);
   explsql();
 
   function explsql() {
@@ -13,7 +12,6 @@ $(document).ready(function() {
 
         $.each(data, function(entryIndex, entry) {
 
-          var temp = $('<div class="e n"></div>');
           var makers = this.makers;
           var sid = this.oneshow.id;
           var imgnum = this.oneshow.imgnum;
@@ -26,6 +24,7 @@ $(document).ready(function() {
           var graph = this.oneshow.graph;
           var anime = this.oneshow.anime;
           var sculp = this.oneshow.sculp;
+          var temp = $('<div class="e n" id="' + sid + '"></div>');
 
           temp.load('/static/scripts/explore_grid.zombie', function() {
             var trans = temp.children(".trans");
@@ -63,7 +62,9 @@ $(document).ready(function() {
           z.append(temp);
 
         }); // end each
-        history.replaceState(null, null, window.location.href);
+        var href = window.location.href;
+        history.pushState(null, null, href);
+        $('#showbox').data("url", href);
       },
       error: function(e){
         alert(e);
@@ -71,11 +72,56 @@ $(document).ready(function() {
     });
   };
 
+  window.onpopstate = function(e){
+    var showbox = $('#showbox');
+    var state = e.state || {foo: 'no state'};
+    if (state.foo == "box") { // forward
+      e_bkfw();
+    } else { // back
+      showbox.html('');
+      showbox.hide();
+    }
+  };
+
+  // for back - forward button
+
+  function e_bkfw() {
+    var showbox = $('#showbox');
+    showbox.show();
+    var sid = showbox.data("sid");
+    var clk = $('#main #b .z').find('#' + sid).children('.clk');
+    $.ajax({
+          url: "/z/" + sid,
+          method : "POST",
+          success: function(data){
+            var lnp = clk.children('.lnp');
+            var temp = $('<div class="txt lower"></div>');
+            temp.append('<small class="ln1 serious"></small>');
+            var myln1 = temp.children('.ln1');
+            lnp.children('.who').each(function(i) {
+              myln1.append($(this).text() + ', ');
+            });
+            myln1.append('<span class="red1"><i>' + lnp.children('.title').text() + '</i></span>, ');
+            myln1.append(lnp.children('.year').text());
+            if (data.reference.trim().length > 0) {
+              temp.append('<small class="ln2 serious"></small>');
+              var myln2 = temp.children('.ln2');
+              myln2.append('REFERENCE: ' + data.reference);
+            }
+            temp.append('<div class="pc n" id="gobk"><img src="/static/pics/arrs.png"></div>')
+            showbox.append(temp);
+          },
+          error: function(e){
+            //alert(e);
+          }
+      });
+  }
+
   $('#main #b .z').on('click', '.e .clk .container', function(e) {
     var container = $(this);
     var clk = $(this).parent();
     var showbox = $('#showbox');
-    showbox.fadeIn();
+    showbox.show();
     var sid = clk.children('.sid').text();
     $.ajax({
           url: "/z/" + sid,
@@ -95,19 +141,18 @@ $(document).ready(function() {
               var myln2 = temp.children('.ln2');
               myln2.append('REFERENCE: ' + data.reference);
             }
+            temp.append('<div class="pc n" id="gobk"><img src="/static/pics/arrs.png"></div>')
             showbox.append(temp);
+            showbox.data("sid", sid);
+            history.pushState({ foo: "box" }, null, "/?box");
           },
           error: function(e){
             //alert(e);
           }
     });
-        e.preventDefault();
-        return false;
-  });
-
-  $('#showbox').click(function() {
-    $(this).html('');
-    $(this).hide();
+    document.cookie = "r" + "=" + window.location.pathname + window.location.search;
+    e.preventDefault();
+    return false;
   });
 
   // randomize top margin
