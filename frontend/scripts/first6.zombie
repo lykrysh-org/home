@@ -3,7 +3,7 @@ $(document).ready(function() {
   $.when( tastesix() ).then(   
     initid()
   );
-  history.replaceState(null, null, window.location.href);
+
 
   function tastesix() {
     $.ajax({
@@ -42,6 +42,7 @@ $(document).ready(function() {
             if (sculp) { mediabut.append('<span class="media">Sculpture</span>') };
           });
         });
+        history.replaceState(null, null, window.location.href);
       },
       error: function(e){
         alert(e);

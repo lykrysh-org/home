@@ -1,6 +1,6 @@
 $(document).ready(function() {
-  explsql();
   history.replaceState(null, null, window.location.href);
+  explsql();
 
   function explsql() {
     $.ajax({
@@ -63,6 +63,7 @@ $(document).ready(function() {
           z.append(temp);
 
         }); // end each
+        history.replaceState(null, null, window.location.href);
       },
       error: function(e){
         alert(e);
