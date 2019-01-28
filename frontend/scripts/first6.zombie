@@ -134,6 +134,17 @@ $(document).ready(function() {
             $.getScript('/static/scripts/show_movie.zombie', function( data, textStatus, jqxhr ) {
               // this is your callback.
             });
+            switch (host) {
+              case "vimeo":
+                var cssLink = $('<link rel="stylesheet" type="text/css" href="/static/css/p-vimeo-only.css">');
+                m.append(cssLink); 
+                break;
+              case "youtube":
+                var cssLink = $('<link rel="stylesheet" type="text/css" href="/static/css/p-yt-only.css">');
+                m.append(cssLink); 
+                break;
+              default:
+            }
             showbox.append(m);
 
             var ln1 = slide.children('.txt').children('.ln1');
