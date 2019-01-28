@@ -1,6 +1,6 @@
 #showbox {
  display: none;
- background: rgba(0,0,0,0.9);
+ background: var(--blck);
 }
 
 #logo {
@@ -11,10 +11,15 @@
  -webkit-transition: -webkit-transform .4s ease-in-out;
  transition: transform .4s ease-in-out;   
 }
+#logo:hover {
+ -webkit-transition: rotate(-5deg);
+ transform: rotate(-5deg);
+}
 #logo.rot {
  -webkit-transition: rotate(90deg);
  transform: rotate(90deg);
 }
+
 #logo img {
  width: 2rem; height: 2rem;
  outline: none; border: none;

@@ -1,3 +1,4 @@
+
 function getCook(cookiename) {
   var cookiestring=RegExp(""+cookiename+"[^;]+").exec(document.cookie);
   return decodeURIComponent(!!cookiestring ? cookiestring.toString().replace(/^[^=]+./,"") : "");
@@ -16,23 +17,24 @@ $(document).ready(function() {
         history.replaceState(null, null, addr);
       }
       showbox.html('');
-      showbox.hide();
+      showbox.fadeOut();
     }
   });
 
-  $('#showbox').click(function() {
-    var showbox = $(this);
+  $('#showbox').on('click', '#gobk', function() {
+    var showbox = $('#showbox');
     history.replaceState(null, null, showbox.data("url"));
     showbox.html('');
-    showbox.hide();
+    showbox.fadeOut();
   });
 
-  $('#showbox').on('mouseenter', '.txt #gobk', function() {
+  $('#showbox').on('mouseenter', '#gobk', function() {
     $(this).addClass("prssd");
   });
 
-  $('#showbox').on('mouseleave', '.txt #gobk', function() {
+  $('#showbox').on('mouseleave', '#gobk', function() {
     $(this).removeClass("prssd");
   });
+
 
 });

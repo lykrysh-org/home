@@ -1,0 +1,72 @@
+$(document).ready(function() {
+
+  var instances;
+  instances = plyr.setup({
+    //debug: true
+  });
+
+  function get(selector) {
+    return document.querySelector(selector);
+  }
+
+  function on(element, type, callback) {
+    if (!(element instanceof HTMLElement)) {
+      element = get(element);
+    }
+    element.addEventListener(type, callback, false);
+  }
+
+  instances[0].on('ready', function(data) {
+    setTimeout(function(){ 
+      $('.plyr__video-embed iframe').css('opacity', '0.3');
+      // $('#mp4plyr').css('opacity', '0.2'); // mp4 only
+    }, 300);
+  });
+
+  instances[0].on('play', function(data) {
+      setTimeout(function(){
+        $('.plyr__video-embed iframe').css('opacity', '1.0');
+        // $('#mp4plyr').css('opacity', '1.0'); // mp4 only
+      }, 1000);
+      $('#showbox #f0g').fadeOut();
+      $('#showbox .txt').fadeOut();
+  });
+
+  instances[0].on('pause', function(data) {
+      $('#showbox #f0g').fadeIn();
+      $('#showbox .txt').fadeIn();
+  });
+
+  instances[0].on('ended', function(data) {
+    $('#showbox #f0g').fadeIn();
+    $('#showbox .txt').fadeIn();
+    $('.plyr__video-embed iframe').css('opacity', '0.0');
+    //$('#mp4plyr').css('opacity', '0.0'); // mp4 only
+  });
+
+
+  var timeout;
+  $(document).mousemove(function(e){
+    if ( ! $('#showbox #f0g').is(':visible')) {
+      clearTimeout(timeout);
+      timeout = setTimeout(function(){
+        if (! instances[0].isPaused()) {
+          $('.plyr__video-embed').css('cursor', 'none');
+          $('.plyr__controls').css('opacity','0.0');
+        }
+      }, 5000);
+      $('.plyr__video-embed').css('cursor', 'pointer');
+      var dif = $('#m').height() - e.pageY;
+      if (dif < 200 && dif > 0) {
+        $('.plyr__controls').css('opacity','1.0');
+      } else {
+        $('.plyr__controls').css('opacity','0.0');
+      }
+    }
+  });
+
+  $(window).on('mouseleave', function(event) {
+    if ( $('.plyr--video .plyr__controls').is(':visible')) { $('.plyr__controls').css('opacity','0.0');}
+  });
+
+});

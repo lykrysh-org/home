@@ -79,7 +79,7 @@ $(document).ready(function() {
       e_bkfw();
     } else { // back
       showbox.html('');
-      showbox.hide();
+      showbox.fadeOut();
     }
   };
 
@@ -87,7 +87,7 @@ $(document).ready(function() {
 
   function e_bkfw() {
     var showbox = $('#showbox');
-    showbox.show();
+    showbox.fadeIn();
     var sid = showbox.data("sid");
     var clk = $('#main #b .z').find('#' + sid).children('.clk');
     $.ajax({
@@ -108,8 +108,8 @@ $(document).ready(function() {
               var myln2 = temp.children('.ln2');
               myln2.append('REFERENCE: ' + data.reference);
             }
-            temp.append('<div class="pc n" id="gobk"><img src="/static/pics/arrs.png"></div>')
             showbox.append(temp);
+            showbox.append('<div class="pc n" id="gobk"><img src="/static/pics/arrs.png"></div>')
           },
           error: function(e){
             //alert(e);
@@ -121,7 +121,7 @@ $(document).ready(function() {
     var container = $(this);
     var clk = $(this).parent();
     var showbox = $('#showbox');
-    showbox.show();
+    showbox.fadeIn();
     var sid = clk.children('.sid').text();
     $.ajax({
           url: "/z/" + sid,
@@ -141,8 +141,8 @@ $(document).ready(function() {
               var myln2 = temp.children('.ln2');
               myln2.append('REFERENCE: ' + data.reference);
             }
-            temp.append('<div class="pc n" id="gobk"><img src="/static/pics/arrs.png"></div>')
             showbox.append(temp);
+            showbox.append('<div class="pc n" id="gobk"><img src="/static/pics/arrs.png"></div>')
             showbox.data("sid", sid);
             history.pushState({ foo: "box" }, null, "/?box");
           },

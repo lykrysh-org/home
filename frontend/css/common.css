@@ -39,6 +39,9 @@ body {
 .serious {
  font-family: cr, serif;
 }
+.edges {
+  overflow: hidden;
+}
 a { outline: none; }
 a::-moz-focus-inner { border: 0; }
 #topguard {

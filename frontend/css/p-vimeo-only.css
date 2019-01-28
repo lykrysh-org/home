@@ -1,0 +1,11 @@
+.plyr__video-embed iframe{
+ height:calc(100vh - 5rem + 100vh);
+}
+
+.plyr__video-embed>div {
+ padding-bottom:100vh; 
+ -webkit-transform:translateY(-50vh); 
+ -moz-transform:translateY(-50vh);
+ -o-transform:translateY(-50vh);
+ transform:translateY(-50vh)
+}
