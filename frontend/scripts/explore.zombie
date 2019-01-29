@@ -75,7 +75,7 @@ $(document).ready(function() {
   window.onpopstate = function(e){
     var showbox = $('#showbox');
     var state = e.state || {foo: 'no state'};
-    if (state.foo == "box") { // forward
+    if (state.foo == "show") { // forward
       e_bkfw();
     } else { // back
       showbox.html('');
@@ -169,7 +169,9 @@ $(document).ready(function() {
             showbox.append(temp);
             showbox.append('<div class="pc n" id="gobk"><img src="/static/pics/arrs.png"></div>')
             showbox.data("sid", sid);
-            history.pushState({ foo: "box" }, null, "/?box");
+
+            $('#nav #hiding .blck .crs').replaceWith('<a class="rw" href="/">Explore</a>');
+            history.pushState({ foo: "show" }, null, "/?show");
           },
           error: function(e){
             //alert(e);

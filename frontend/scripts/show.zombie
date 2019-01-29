@@ -7,7 +7,7 @@ function getCook(cookiename) {
 $(document).ready(function() {
 
   $(window).on('load', function(){
-    if (window.location.search == "?box") {
+    if (window.location.search == "?show") {
       var addr = getCook('r');
       //alert(window.location.search + " " + addr);
       var showbox = $('#showbox');
@@ -18,7 +18,7 @@ $(document).ready(function() {
       }
       showbox.html('');
       showbox.fadeOut();
-    }
+    } 
   });
 
   $('#showbox').on('click', '#gobk', function() {
@@ -26,6 +26,9 @@ $(document).ready(function() {
     history.replaceState(null, null, showbox.data("url"));
     showbox.html('');
     showbox.fadeOut();
+    var rw = $('#nav #hiding .blck .rw');
+    var name = rw.text();
+    rw.replaceWith('<span class="crs">' + name + '</span>');
   });
 
   $('#showbox').on('mouseenter', '#gobk', function() {

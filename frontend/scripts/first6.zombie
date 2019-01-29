@@ -63,9 +63,9 @@ $(document).ready(function() {
   window.onpopstate = function(e){
     var showbox = $('#showbox');
     var state = e.state || {foo: 'no state'};
-    if (state.foo == "box") {
+    if (state.foo == "show") {
       t_bkfw();
-      // alert("1: " + history.state.foo); // 1: box
+      // alert("1: " + history.state.foo);
     } else {
       showbox.html('');
       showbox.fadeOut();
@@ -162,7 +162,8 @@ $(document).ready(function() {
             showbox.append(temp);
             showbox.append('<div class="pc n" id="gobk"><img src="/static/pics/arrs.png"></div>')
 
-            history.pushState({ foo: "box" }, null, "/?box");
+            $('#nav #hiding .blck .crs').replaceWith('<a class="rw" href="/">Taste 6</a>');
+            history.pushState({ foo: "show" }, null, "/?show");
           },
           error: function(err){
             //alert(err);

@@ -8,7 +8,7 @@ button::-moz-focus-inner {
 
 .plyr{
 position:relative;
-max-width:100%;min-width:200px;font-family:rg;
+max-width:100%;min-width:200px;font-family:en;
 direction:ltr
 }
 .plyr,.plyr *,.plyr ::after,.plyr ::before{

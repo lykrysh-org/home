@@ -44,10 +44,10 @@ $(document).ready(function() {
     //$('#mp4plyr').css('opacity', '0.0'); // mp4 only
   });
 
-
   var timeout;
   $(document).mousemove(function(e){
-    if ( ! $('#showbox #f0g').is(':visible')) {
+    var m =  $('#showbox #m');
+    if ( m.is(':visible')) {
       clearTimeout(timeout);
       timeout = setTimeout(function(){
         if (! instances[0].isPaused()) {
@@ -56,8 +56,8 @@ $(document).ready(function() {
         }
       }, 5000);
       $('.plyr__video-embed').css('cursor', 'pointer');
-      var pos = e.pageY - $('#m').offset().top;
-      var dif = $('#m').height() - pos;
+      var pos = e.pageY - m.offset().top;
+      var dif = m.height() - pos;
       if (dif < 240 && dif > 0) {
         $('.plyr__controls').css('opacity','1.0');
       } else {
