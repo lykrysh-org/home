@@ -133,7 +133,6 @@
  height: 3.0rem;
  border-radius: 1.5rem;
  top: 1.0rem; left: 1.2rem;
- transform: rotate(270deg);
   filter: blur(2px);
   -webkit-filter: blur(2px);
   -moz-filter: blur(2px);

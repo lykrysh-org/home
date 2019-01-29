@@ -99,7 +99,7 @@ $(document).ready(function() {
               myln2.append('REFERENCE: ' + data.reference);
             }
             showbox.append(temp);
-            showbox.append('<div class="pc n" id="gobk"><img src="/static/pics/arrs.png"></div>')
+            showbox.append('<div class="pc n" id="gobk"><img src="/static/pics/arrw.png"></div>')
           },
           error: function(e){
             //alert(e);
@@ -160,7 +160,7 @@ $(document).ready(function() {
               myln2.append('REFERENCE: ' + data.reference);
             }
             showbox.append(temp);
-            showbox.append('<div class="pc n" id="gobk"><img src="/static/pics/arrs.png"></div>')
+            showbox.append('<div class="pc n" id="gobk"><img src="/static/pics/arrw.png"></div>')
 
             $('#nav #hiding .blck .crs').replaceWith('<a class="rw" href="/">Taste 6</a>');
             history.pushState({ foo: "show" }, null, "/?show");
