@@ -107,9 +107,6 @@ $(document).ready(function() {
       });
   }
 
-// if (data.mediahost.trim().length > 0) temp.append(data.mediahost  + '<br>');
-// if (data.mediaid.trim().length > 0) temp.append(data.mediaid  + '<br>');
-
   $('#main').on('click', '.slide .area', function(e) {
 
     var area = $(this);
@@ -142,6 +139,7 @@ $(document).ready(function() {
               case "youtube":
                 var cssLink = $('<link rel="stylesheet" type="text/css" href="/static/css/p-yt-only.css">');
                 m.append(cssLink); 
+                m.append('<div id="t1" class="ytblk"></div><div id="t2" class="ytblk"></div>');
                 break;
               default:
             }

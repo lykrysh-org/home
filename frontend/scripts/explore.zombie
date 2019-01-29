@@ -127,6 +127,31 @@ $(document).ready(function() {
           url: "/z/" + sid,
           method : "POST",
           success: function(data){
+
+            var f0g = $('<div id="f0g"></div>');
+            showbox.append(f0g);
+
+            var m = $('<div id="m" class="edges n"></div>');
+            var host = data.mediahost.trim();
+            var hostid = data.mediaid.trim();
+            m.append('<div data-type=' + host + ' data-video-id='+ hostid + '></div>');
+            $.getScript('/static/scripts/show_movie.zombie', function( data, textStatus, jqxhr ) {
+              // this is your callback.
+            });
+            switch (host) {
+              case "vimeo":
+                var cssLink = $('<link rel="stylesheet" type="text/css" href="/static/css/p-vimeo-only.css">');
+                m.append(cssLink); 
+                break;
+              case "youtube":
+                var cssLink = $('<link rel="stylesheet" type="text/css" href="/static/css/p-yt-only.css">');
+                m.append(cssLink); 
+                m.append('<div id="t1" class="ytblk"></div><div id="t2" class="ytblk"></div>');
+                break;
+              default:
+            }
+            showbox.append(m);
+
             var lnp = clk.children('.lnp');
             var temp = $('<div class="txt lower"></div>');
             temp.append('<small class="ln1 serious"></small>');
