@@ -6,7 +6,7 @@
  z-index: 1001;
  background: yellow;
  color:black;
- top: 0; left: 0;
+ top: 0; right: 0;
  width: 30%; height: 4rem;
 }
 
