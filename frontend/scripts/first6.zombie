@@ -121,6 +121,9 @@ $(document).ready(function() {
           method : "POST",
           success: function(data){
 
+            var preload = $('<div id="pl" class="n"><div class="sk"><div class="s1k ccl"></div><div class="s2k ccl"></div><div class="s3k ccl"></div><div class="s4k ccl"></div><div class="s5k ccl"></div><div class="s6k ccl"></div><div class="s7k ccl"></div><div class="s8k ccl"></div><div class="s9k ccl"></div><div class="s10k ccl"></div><div class="s11k ccl"></div><div class="s12k ccl"></div></div></div>');
+            showbox.append(preload);
+
             var f0g = $('<div id="f0g"></div>');
             showbox.append(f0g);
 

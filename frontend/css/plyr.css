@@ -110,8 +110,8 @@ position:relative;background:none;border-radius:inherit
  -ms-user-select:none;
  user-select:none;
  opacity: 0.0;
-  -webkit-transition: opacity 0.5s;
-  transition: opacity 0.5s;
+  -webkit-transition: opacity 1.6s;
+  transition: opacity 1.6s;
 }
 
 .plyr__video-embed>div {}
@@ -268,6 +268,9 @@ color:#99ffff;
   border-radius:100%;
   color: white;
   box-shadow: 0em 0em 3em #bbb, inset 0em 0em 3em #bbb, 1px 1px 5px #bbb, inset 0px 0px 10px #bbb;
+  opacity: 0;
+  -webkit-transition:opacity .9s;
+  transition:opacity .9s;
 }
 
 .plyr__play-large:hover {

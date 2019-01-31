@@ -17,10 +17,13 @@ $(document).ready(function() {
   }
 
   instances[0].on('ready', function(data) {
+    $('#showbox #pl .sk .ccl').each(function() { $( this ).addClass( "off" ); });
+    $('#showbox #pl').fadeOut();
+    $('.plyr__play-large').css('opacity', '1.0');
     setTimeout(function(){ 
       $('.plyr__video-embed iframe').css('opacity', '0.2');
       // $('#mp4plyr').css('opacity', '0.2'); // mp4 only
-    }, 300);
+    }, 800);
   });
 
   instances[0].on('play', function(data) {
