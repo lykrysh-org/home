@@ -73,31 +73,8 @@ body {
   align-items: center;
   justify-content: center;
 }
-.clk .container .item {
-  position: absolute;
-  z-index: 4;
-  width: 2rem;
-  height: 2rem;
-  border-radius: 100%;
-  border:2px solid #fff;
-  background-image: url("/static/pics/play_off.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  opacity: 0.0;
-  -webkit-transition: opacity 0.3s ease-out;
-  transition: opacity 0.3s ease-out;
-}
-.clk .container:hover .item {
-  opacity: 0.7;
-}
-.clk .container:active .item {
-  opacity: 1.0;
-}
+
 .clk .container:hover img {
-  -webkit-filter: brightness(60%); 
-  filter: brightness(60%);
-}
-.clk .container:active img {
   -webkit-filter: brightness(70%); 
   filter: brightness(70%);
 }
