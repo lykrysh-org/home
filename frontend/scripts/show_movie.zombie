@@ -17,8 +17,10 @@ $(document).ready(function() {
   }
 
   instances[0].on('ready', function(data) {
-    $('#showbox #pl .sk .ccl').each(function() { $( this ).addClass( "off" ); });
-    $('#showbox #pl').fadeOut();
+    if ($('#showbox #pl').is(':visible')) {
+      $('#showbox #pl .sk .ccl').each(function() { $( this ).addClass( "off" ); });
+      $('#showbox #pl').fadeOut();
+    }
     $('.plyr__play-large').css('opacity', '1.0');
     setTimeout(function(){ 
       $('.plyr__video-embed iframe').css('opacity', '0.2');
@@ -27,12 +29,26 @@ $(document).ready(function() {
   });
 
   instances[0].on('play', function(data) {
+
+    if ($('.plyr__play-large').hasClass("hide-rel")) {
+      $('#rld').hide();
+      setTimeout(function(){
+        $('.plyr__video-embed iframe').css('opacity', '1.0');
+        //$('#mp4plyr').css('opacity', '1.0');
+      }, 1000); 
+      $('.plyr__play-large').removeClass("hide-rel");
+      $('.plyr__play-large').css('opacity', '1.0');
+      $('.plyr__controls').show();
+
+    } else {
       setTimeout(function(){
         $('.plyr__video-embed iframe').css('opacity', '1.0');
         // $('#mp4plyr').css('opacity', '1.0'); // mp4 only
       }, 1000);
-      $('#showbox #f0g').fadeOut();
-      $('#showbox .txt').fadeOut();
+
+    }
+    $('#showbox #f0g').fadeOut();
+    $('#showbox .txt').fadeOut();
   });
 
   instances[0].on('pause', function(data) {
@@ -41,9 +57,13 @@ $(document).ready(function() {
   });
 
   instances[0].on('ended', function(data) {
+    $('.plyr__play-large').css('opacity', '0.0');
+    $('.plyr__play-large').addClass("hide-rel");
     $('#showbox #f0g').fadeIn();
     $('#showbox .txt').fadeIn();
     $('.plyr__video-embed iframe').css('opacity', '0.0');
+    $('.plyr__controls').hide();
+    $('#rld').fadeIn("slow");
     //$('#mp4plyr').css('opacity', '0.0'); // mp4 only
   });
 
@@ -67,6 +87,11 @@ $(document).ready(function() {
         $('.plyr__controls').css('opacity','0.2');
       }
     }
+
+  $('#showbox #rld').click(function(){
+    instances[0].play();
+  });
+
   });
 
   $(window).on('mouseleave', function(event) {

@@ -230,7 +230,7 @@
  color: #eee;
 }
 
-#gobk {
+#showbox #gobk {
  position: fixed;
  z-index: 115;
  width: 3.0rem;
@@ -242,14 +242,34 @@
   -moz-filter: blur(2px);
   -o-filter: blur(2px);
 }
-#gobk img {
+#showbox  #gobk img {
  width: 2.0rem; height: 2.0rem;
  margin: 0.5rem;
 }
-#gobk.prssd {
+#showbox  #gobk.prssd {
  background: #111; 
   filter: none;
   -webkit-filter: none;
   -moz-filter: none;
   -o-filter: none;
+}
+
+#showbox #rld {
+  display: none;
+  position: absolute; 
+  z-index: 114;
+  width: 5.7rem; height: 5.7rem;
+  top: calc(50vh - 5.5rem); left: calc(50% - 3rem);
+  border:2px solid #fff;
+  border-radius:50%;
+  background-repeat: no-repeat;
+  background-size: 2.4rem 2.4rem;
+  background-position: 1.6rem 1.6rem;
+  background-image:url(/static/pics/reload.png);   
+  box-shadow: 0em 0em 3em #bbb, inset 0em 0em 3em #bbb, 1px 1px 5px #bbb, inset 0px 0px 10px #bbb;
+  opacity: 0.9;
+}
+#showbox #rld:hover {
+   box-shadow: 0em 0em 3em #ddd, inset 0em 0em 3em #ddd, 0em 0em 0.5rem #fff, inset 0px 0px 10px #ddd;
+  opacity: 1.0;
 }

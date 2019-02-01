@@ -170,7 +170,10 @@ $(document).ready(function() {
               myln2.append('REFERENCE: ' + data.reference);
             }
             showbox.append(temp);
-            showbox.append('<div class="pc n" id="gobk"><img src="/static/pics/arrw.png"></div>')
+
+            showbox.append('<div class="pc n" id="gobk"><img src="/static/pics/arrw.png"></div>');
+            showbox.append('<div id="rld" class="pc n"></div>');
+
             showbox.data("sid", sid);
 
             $('#nav #hiding .blck .crs').replaceWith('<a class="rw" href="/">Explore</a>');
