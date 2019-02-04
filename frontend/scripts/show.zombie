@@ -1,11 +1,8 @@
-
 function getCook(cookiename) {
   var cookiestring=RegExp(""+cookiename+"[^;]+").exec(document.cookie);
   return decodeURIComponent(!!cookiestring ? cookiestring.toString().replace(/^[^=]+./,"") : "");
 }
-
 $(document).ready(function() {
-
   $(window).on('load', function(){
     if (window.location.search == "?show") {
       var addr = getCook('r');
@@ -38,6 +35,5 @@ $(document).ready(function() {
   $('#showbox').on('mouseleave', '#gobk', function() {
     $(this).removeClass("prssd");
   });
-
 
 });

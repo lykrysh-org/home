@@ -5,6 +5,14 @@ $(document).ready(function() {
     //debug: true
   });
 
+  $(window).on('load', function(){
+    if (instances.length > 0) instances[0].destroy();
+  });
+
+  $('#showbox').on('click', '#gobk', function() {
+    if (instances.length > 0) instances[0].destroy();
+  });
+
   function get(selector) {
     return document.querySelector(selector);
   }
@@ -39,13 +47,11 @@ $(document).ready(function() {
       $('.plyr__play-large').removeClass("hide-rel");
       $('.plyr__play-large').css('opacity', '1.0');
       $('.plyr__controls').fadeIn();
-
     } else {
       //setTimeout(function(){
         //$('.plyr__video-embed iframe').css('opacity', '1.0');
         // $('#mp4plyr').css('opacity', '1.0'); // mp4 only
       //}, 1000);
-
     }
     $('#showbox #f0g').fadeOut();
     $('#showbox .txt').fadeOut();
@@ -88,11 +94,10 @@ $(document).ready(function() {
         $('.plyr__controls').css('opacity','0.2');
       }
     }
+  });
 
   $('#showbox #rld').click(function(){
     instances[0].play();
-  });
-
   });
 
   $(window).on('mouseleave', function(event) {
