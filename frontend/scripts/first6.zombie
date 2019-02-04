@@ -167,14 +167,14 @@ $(document).ready(function() {
             showbox.append('<div class="pc n" id="gobk"><img src="/static/pics/arrw.png"></div>');
             showbox.append('<div id="rld" class="pc n"></div>');
 
-            $('#nav #hiding .blck .crs').replaceWith('<a class="rw" href="/">Taste 6</a>');
+            $('#nav #hiding .blck .crs').replaceWith('<a class="rw" href="/limited">Limited Only</a>');
             history.pushState({ foo: "show" }, null, "/?show");
           },
           error: function(err){
             //alert(err);
           }
     });
-    document.cookie = "r" + "=/";
+    document.cookie = "r" + "=/limited";
     e.preventDefault();
     return false;
   });
@@ -266,7 +266,7 @@ $(document).ready(function() {
 
   $('#main').on('click', '.slide .txt .kwpost .square .media', function(e) {
     var which = $(this).text().toLowerCase();
-    var togo = "/explore?media=" + which;
+    var togo = "/?media=" + which;
     window.location.replace(togo);
   });
 

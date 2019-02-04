@@ -275,7 +275,7 @@ $(document).ready(function() {
   });
 
   $('#rsbut').click(function() {
-    window.location.replace("/explore");
+    window.location.replace("/");
   });
 
   $('#main #b .z').on('click', '.e .clk .kwpost .square .media', function() {

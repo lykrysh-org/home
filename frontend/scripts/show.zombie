@@ -6,9 +6,9 @@ $(document).ready(function() {
   $(window).on('load', function(){
     if (window.location.search == "?show") {
       var addr = getCook('r');
-      //alert(window.location.search + " " + addr);
+      //console.log(window.location.search + " " + addr);
       var showbox = $('#showbox');
-      if (addr.length > 1) { // '/'
+      if (addr.length > 1) { // '/limited'
         window.location.replace(addr);
       } else {
         history.replaceState(null, null, addr);

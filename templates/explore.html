@@ -11,7 +11,7 @@
 
 {% block topbody %}
   <div class="bgscreen n" id="dummy"><small id="bugbug"></small></div>
-  <div class="bgscreen" id="showbox" data-url="/explore" data-sid=0></div>
+  <div class="bgscreen" id="showbox" data-url="/" data-sid=0></div>
   <div class="n" id="narrow"><small><div class="but pc" id="narrowdown">Choose Flavours</div></small></div> 
   <div class="bgscreen" id="nwblk"></div>
   <div id="gurd">
@@ -21,7 +21,7 @@
          <div class="but pc" id="rsbut">Reset to default</div>
       </small>
     </div>
-    <form id="dmF" class="nd1 ya n" action="/explore">
+    <form id="dmF" class="nd1 ya n" action="/">
       <label class="ck w0">Horror<input name="horror" type="checkbox" {% if horror %}checked="checked"{% endif %}><span class="checkmark"></span></label>
       <label class="ck w0">Wet<input name="wet" type="checkbox" {% if wet %}checked="checked"{% endif %}><span class="checkmark"></span></label>
       <label class="ck w0">Poetic<input name="poetic" type="checkbox" {% if poetic %}checked="checked"{% endif %}><span class="checkmark"></span></label>
@@ -39,9 +39,9 @@
   </div>{% endblock %}
 
 {% block n0 %}
-          <a href="/">Taste 6</a><br>
           <span class="crs">Explore</span><br>
-          <a href="/talk">Talk</a><br>{% endblock %}
+          <a href="/talk">Talk</a><br>
+          <a href="/limited">Limited Only</a><br>{% endblock %}
 
 {% block n1 %}
           <a href="/about">About & Terms</a><br>
