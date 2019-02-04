@@ -3,6 +3,7 @@ $(document).ready(function() {
   var instances;
   instances = plyr.setup({
     //debug: true
+    blankVideo: "/static/pics/blank.mp4"
   });
 
   $(window).on('load', function(){
