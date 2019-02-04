@@ -41,7 +41,7 @@ $(document).ready(function() {
             lnp.append('<span class="title pc">' + title + '</span>, <span class="year">' + year + '</span>, ');
             clk.children('.intro').text(intro);
             var mediabut = clk.children(".kwcontainer").children(".square");
-            if (mature) { mediabut.append('<span class="mature">Mature</span>') };
+            if (mature) { mediabut.append('<span class="mature">18+</span>') };
             if (movin) { mediabut.append('<span class="media">Film</span>') };
             if (still) { mediabut.append('<span class="media">Photography</span>') };
             if (graph) { mediabut.append('<span class="media">Graphic Novel</span>') };
