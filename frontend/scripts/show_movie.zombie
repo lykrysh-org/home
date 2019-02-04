@@ -32,19 +32,19 @@ $(document).ready(function() {
 
     if ($('.plyr__play-large').hasClass("hide-rel")) {
       $('#rld').hide();
-      setTimeout(function(){
-        $('.plyr__video-embed iframe').css('opacity', '1.0');
+      //setTimeout(function(){
+        //$('.plyr__video-embed iframe').css('opacity', '1.0');
         //$('#mp4plyr').css('opacity', '1.0');
-      }, 1000); 
+      //}, 1000); 
       $('.plyr__play-large').removeClass("hide-rel");
       $('.plyr__play-large').css('opacity', '1.0');
       $('.plyr__controls').fadeIn();
 
     } else {
-      setTimeout(function(){
-        $('.plyr__video-embed iframe').css('opacity', '1.0');
+      //setTimeout(function(){
+        //$('.plyr__video-embed iframe').css('opacity', '1.0');
         // $('#mp4plyr').css('opacity', '1.0'); // mp4 only
-      }, 1000);
+      //}, 1000);
 
     }
     $('#showbox #f0g').fadeOut();
