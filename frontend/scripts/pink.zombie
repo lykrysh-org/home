@@ -40,7 +40,7 @@ $(document).ready(function() {
     }
   });
 
-  $('#main').bind("cut copy paste",function(e) {
+  $('#main').bind("cut copy",function(e) {
     e.preventDefault();
   });
 

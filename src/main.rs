@@ -73,7 +73,7 @@ fn main() {
             .resource("/z/{sid}", |r| { r.method(http::Method::POST).with_async(show::api::show) })
             .resource("/s", |r| { r.method(http::Method::POST).with_async(show::api::tastesix) })
             .resource("/a", |r| { r.method(http::Method::POST).with_async(show::api::explsql) })
-            .route("/talk", http::Method::GET, api::talk)
+            .route("/share", http::Method::GET, api::talk)
             .route("/p", http::Method::POST, talk::api::multipart)
             .resource("/n", |r| { r.method(http::Method::POST).with_async(talk::api::create) })
             .resource("/l1", |r| { r.method(http::Method::POST).with_async(talk::api::loadfirst) })
