@@ -469,7 +469,7 @@ $(document).ready(function() {
             r.children(".f30").find("input:hidden[name=inheritedid]").val(rs.rootnum);
 
           });
-          $('#notes').children("ul").append(temp);
+          $('#notes').children("ul").prepend(temp);
 
           // cleaning after
 
@@ -491,7 +491,6 @@ $(document).ready(function() {
 
           var yup = ox.siblings(".yup");
           yup.hide();
-
         },
         error: function(e){
           alert(e);
