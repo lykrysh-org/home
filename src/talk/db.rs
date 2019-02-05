@@ -135,6 +135,7 @@ impl Handler<ReadChats> for DbExecutor {
                     0 => {
                     },
                     _ => {
+                        let mut prevroot: i32 = 0;
                         for t in chats {
                             let att: String = match &t.attached {
                                 Some(link) => link.to_string(),
@@ -154,6 +155,12 @@ impl Handler<ReadChats> for DbExecutor {
                             } else {
                                 false
                             };
+                            let ir: bool = if t.rootnum == prevroot {
+                                true
+                            } else {
+                                prevroot = t.rootnum;
+                                false
+                            };
                             let out = OneChatOut {
                                 id: t.id.to_owned(),
                                 rootnum: t.rootnum.to_owned(),
@@ -164,7 +171,7 @@ impl Handler<ReadChats> for DbExecutor {
                                 attached: att,
                                 description: t.description.to_owned().to_string(),
                                 youflagged: yf,
-                                isrep: false,
+                                isrep: ir,
                             };
                             vec.push(out);
                         }
