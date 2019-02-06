@@ -87,6 +87,7 @@ struct PageJ {
     mediahost: String,
     mediaid: String,
     reference: String,
+    ends: i32,
 }
 
 pub fn show(
@@ -115,10 +116,15 @@ pub fn show(
                         Some(r) => r.to_string(),
                         None => "".to_string(),
                     };
+                    let es: i32 = match _out.ends {
+                        Some(e) => e,
+                        None => 0,
+                    };
                     let j = PageJ {
                         mediahost: host,
                         mediaid: mid,
                         reference: fere,
+                        ends: es,
                     };
                     let o = serde_json::to_string(&j)?;
                     Ok(HttpResponse::Ok().content_type("application/json").body(o).into())

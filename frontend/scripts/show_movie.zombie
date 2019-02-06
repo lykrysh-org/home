@@ -77,21 +77,6 @@ $(document).ready(function() {
     //$('#mp4plyr').css('opacity', '0.0'); // mp4 only
   });
 
-  instances[0].on('timeupdate', function(data) {
-    var d = instances[0].getDuration(),
-        c = instances[0].getCurrentTime(),
-        left = d - c;
-    console.log(left);
-    if (left  < d) {
-      if (left < 1.25) {
-        $(".plyr__video-embed iframe").css('opacity', '0.0');
-        $(".plyr__play-large").css('opacity', '0.0');
-      } else {
-        $(".plyr__video-embed iframe").css('opacity', '1.0');
-        $(".plyr__play-large").css('opacity', '1.0');
-      }}
-  });
-
   var timeout;
   $(document).mousemove(function(e){
     var m =  $('#showbox #m');

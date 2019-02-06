@@ -137,7 +137,8 @@ $(document).ready(function() {
             var m = $('<div id="m" class="edges n"></div>');
             var host = data.mediahost.trim();
             var hostid = data.mediaid.trim();
-            m.append('<div data-type=' + host + ' data-video-id='+ hostid + '></div>');
+            var ends = (data.ends > 0) ? data.ends : 1.25;
+            m.append('<div data-type=' + host + ' data-video-id='+ hostid + ' data-ends=' + ends + '></div>');
             $.getScript('/static/scripts/show_movie.zombie', function( data, textStatus, jqxhr ) {
               // this is your callback.
             });
@@ -168,7 +169,7 @@ $(document).ready(function() {
             if (data.reference.trim().length > 0) {
               temp.append('<small class="ln2 serious"></small>');
               var myln2 = temp.children('.ln2');
-              myln2.append('REFERENCE: ' + data.reference);
+              myln2.append('Reference: ' + data.reference);
             }
             showbox.append(temp);
 

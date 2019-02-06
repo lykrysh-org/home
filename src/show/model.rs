@@ -51,6 +51,7 @@ pub struct Page {
     pub mediahost: Option<String>,
     pub mediaid: Option<String>,
     pub reference: Option<String>,
+    pub ends: Option<i32>,
 }
 
 impl Show {

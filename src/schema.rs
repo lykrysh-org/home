@@ -102,6 +102,7 @@ table! {
         mediahost -> Nullable<Varchar>,
         mediaid -> Nullable<Varchar>,
         reference -> Nullable<Varchar>,
+        ends -> Nullable<Int4>,
     }
 }
 
