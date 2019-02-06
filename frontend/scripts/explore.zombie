@@ -63,7 +63,7 @@ $(document).ready(function() {
 
         }); // end each
         var href = window.location.href;
-        history.pushState(null, null, href);
+        history.replaceState(null, null, href);
         $('#showbox').data("url", href);
       },
       error: function(e){

@@ -42,7 +42,7 @@ $(document).ready(function() {
           });
           main.append(temp);
         });
-        history.pushState(null, null, window.location.href);
+        history.replaceState(null, null, window.location.href);
       },
       error: function(e){
         alert(e);
