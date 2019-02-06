@@ -126,18 +126,25 @@
 .ytblk {
   pointer-events:none; 
   position: absolute;
-  z-index: 13;
   width: 100%;
   left: 0;
   background: black;
 }
 #t1 {
+  z-index: 13;
   height: 60px;
   top: 0; 
 }
 #t2 {
+  z-index: 13;
   height: 180px;
   bottom: 0; 
+}
+#t3 {
+  display: none;
+  z-index: 14;
+  bottom: 0;
+  height: 232px;
 }
 
 #showbox #m {

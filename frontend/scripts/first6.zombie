@@ -140,6 +140,7 @@ $(document).ready(function() {
                 m.append(cssLink); 
                 break;
               case "youtube":
+                showbox.append('<div id="t3" class="ytblk"></div>');
                 var cssLink = $('<link rel="stylesheet" type="text/css" href="/static/css/p-yt-only.css">');
                 m.append(cssLink); 
                 m.append('<div id="t1" class="ytblk"></div><div id="t2" class="ytblk"></div>');

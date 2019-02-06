@@ -56,9 +56,11 @@ $(document).ready(function() {
     }
     $('#showbox #f0g').fadeOut();
     $('#showbox .txt').fadeOut();
+    if ($('#showbox #t3').is(':visible')) { setTimeout(function(){ $('#showbox #t3').hide() }, 400) };
   });
 
   instances[0].on('pause', function(data) {
+      $('#showbox #t3').show();
       $('#showbox #f0g').fadeIn();
       $('#showbox .txt').fadeIn();
   });
