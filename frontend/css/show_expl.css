@@ -199,29 +199,35 @@ body {
 
 #gurd .bt2 {
  position: absolute;
- z-index: 18;
+ z-index: 14;
  width: 100%;
- bottom: 2.5rem; 
+ bottom: 3rem; 
  text-align: center;
 }
 #gurd .bt2 small {
- font-size: 13px;
+ font-size: 16px;
+ line-height: 5rem;
 }
-#gurd .bt2 .but {
- width: 10.5rem;
- margin: 0 auto;
- margin-top:1.4rem;
-}
+
 #gurd .bt2 #enter {
+ margin: 0 auto;
+ width: 5rem; height: 5rem;
+ border-radius: 50%;
+ border: 2px solid var(--blck); 
  pointer-events: none;
+
 }
 #gurd .bt2 #enter.ent {
  color: var(--whit); 
- background: var(--blck); 
+ border: 2px solid var(--whit);
+ box-shadow: 0em 0em 3em #bbb, inset 0em 0em 3em #bbb, 1px 1px 5px #bbb, inset 0px 0px 10px #bbb;
 }
 #gurd .bt2 #enter.ent:hover {
- color: var(--whit); 
- background: var(--red5); 
+ color: var(--red4); 
+ box-shadow: 0em 0em 3em #ddd, inset 0em 0em 3em #ddd, 0em 0em 0.5rem #fff, inset 0px 0px 10px #ddd;
+}
+#gurd .bt2 #enter.ent:active {
+  box-shadow: 0em 0em 3em #bbb, inset 0em 0em 3em #bbb, 1px 1px 5px #bbb, inset 0px 0px 10px #bbb;
 }
 #gurd .ya {
  font-size: 32px;
