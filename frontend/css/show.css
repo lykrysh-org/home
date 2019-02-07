@@ -240,25 +240,21 @@
 #showbox #gobk {
  position: fixed;
  z-index: 115;
- width: 3.0rem;
- height: 3.0rem;
- border-radius: 1.5rem;
- top: 1.0rem; left: 1.2rem;
-  filter: blur(2px);
-  -webkit-filter: blur(2px);
-  -moz-filter: blur(2px);
-  -o-filter: blur(2px);
+ width: 2.0rem;
+ height: 2.0rem;
+ top: 1.5rem; left: 1.5rem;
+ background: var(--red1); 
+ -webkit-transition: all .4s ease-in-out;
+ transition: all .4s ease-in-out; 
 }
 #showbox  #gobk img {
- width: 2.0rem; height: 2.0rem;
- margin: 0.5rem;
+ width: 1.4rem; height: 1.4rem;
+ margin: 0.3rem;
 }
 #showbox  #gobk.prssd {
- background: #111; 
-  filter: none;
-  -webkit-filter: none;
-  -moz-filter: none;
-  -o-filter: none;
+ background: var(--red2); 
+  -webkit-transition: rotate(5deg);
+ transform: rotate(5deg);
 }
 
 #showbox #rld {

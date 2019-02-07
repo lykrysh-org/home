@@ -18,12 +18,14 @@ html {
  --bsod: #080808;
  --dots: #aaaaaa;
  --hold: #333;
- --red5: #e6002a;
+ --r1: #100;
+ --r6: #600;
+ --red5: #ff1a34;
  --red4: #330009;
- --red3: #8f2429;
- --red2: #ff8097;
- --red1: #ffb3c1;
- --red0: #ff335a;
+ --red3: #80000f;
+ --red2: #ff6678;
+ --red1: #ffb3bb;
+ --red0: #ff4055;
  --blck: #000000; 
  --whit: #ffffff;
 }

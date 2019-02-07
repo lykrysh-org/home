@@ -112,8 +112,13 @@ body {
  position: fixed;
  z-index: 10;
  right: 1.6rem; top: 1.5rem;
+ -webkit-transition: -webkit-transform .4s ease-in-out;
+ transition: transform .4s ease-in-out;  
 }
-
+#narrow:hover {
+ -webkit-transition: rotate(-2deg);
+ transform: rotate(-2deg);
+}
 #narrow .bbk {
  text-decoration: line-through;
 }
