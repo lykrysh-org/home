@@ -253,6 +253,9 @@ $(document).ready(function() {
     var gr = $('#gurd');
     $('#nwblk').toggle();
     gr.toggle();
+    $('#rwh').toggle();
+    $('#lwh').toggle();
+
     var where = window.location.search;
     if (~where.indexOf("media")) {
       var e = $('#enter');
@@ -272,6 +275,8 @@ $(document).ready(function() {
   $('#nwblk').click(function() {
     var np = $('#narrowdown');
     $("#gurd").hide();
+    $('#rwh').hide();
+    $('#lwh').hide();
     np.removeClass("bbk");
     $(this).hide();
   });

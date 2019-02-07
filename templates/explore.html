@@ -14,17 +14,20 @@
   <div class="bgscreen" id="showbox" data-url="/" data-sid=0></div>
   <div class="n" id="narrow"><small><div class="but pc" id="narrowdown">Choose Categories</div></small></div> 
   <div class="bgscreen" id="nwblk"></div>
-  <div id="gurd">
+  <div id="rwh" class="bak"></div>
+  <div id="lwh" class="couch"><small><div class="but pc" id="rsbut">Reset to default</div></small></div>
+  <div id="gurd" class="bak">
+
     <div class="bt2">
       <small>
          <div class="but pc" id="enter">Enter</div>
-         <div class="but pc" id="rsbut">Reset to default</div>
       </small>
     </div>
+
     <form id="dmF" class="nd1 ya n" action="/">
       <label class="ck w0">Horror<input name="horror" type="checkbox" {% if horror %}checked="checked"{% endif %}><span class="checkmark"></span></label>
       <label class="ck w0">Erotic<input name="wet" type="checkbox" {% if wet %}checked="checked"{% endif %}><span class="checkmark"></span></label>
-      <label class="ck w0">Poetic<input name="poetic" type="checkbox" {% if poetic %}checked="checked"{% endif %}><span class="checkmark"></span></label>
+      <label class="ck w0">Apocalyp<input name="poetic" type="checkbox" {% if poetic %}checked="checked"{% endif %}><span class="checkmark"></span></label>
       <label class="ck w0">Weird<input name="weird" type="checkbox" {% if weird %}checked="checked"{% endif %}"><span class="checkmark"></span></label>
       <input type="hidden" id="sort" name="sort" value="{{ sort }}">
     </form>
@@ -36,6 +39,7 @@
           <option {% if sort == 3 %}selected="selected"{% endif %}>Oldest creation</option>
         </select>
     </div>
+    <div class="redb couch"><div class="shd"></div></div>
   </div>{% endblock %}
 
 {% block n0 %}

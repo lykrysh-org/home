@@ -19,6 +19,8 @@ html {
  --dots: #aaaaaa;
  --hold: #333;
  --r1: #100;
+ --r2: #200;
+ --r3: #300;
  --r6: #600;
  --red5: #ff1a34;
  --red4: #ffe6e8;
@@ -226,14 +228,7 @@ small .but {
  width: 28px;
  height: 54px;
 }
-
-.pt {
- position: fixed;
- z-index: 1;
- height: 100vh;
- width:  100%;
- max-width: 640px;
- margin: 0 auto;
+.couch {
  background:
   radial-gradient(hsl(0, 100%, 27%) 4%, hsl(0, 100%, 18%) 9%, hsla(0, 100%, 20%, 0) 9%) 0 0,
   radial-gradient(hsl(0, 100%, 27%) 4%, hsl(0, 100%, 18%) 8%, hsla(0, 100%, 20%, 0) 10%) 36px 36px,
@@ -247,6 +242,14 @@ small .but {
   linear-gradient(-45deg, hsla(0, 100%, 20%, 0) 49%, hsla(0, 100%, 0%, 1) 50%, hsla(0, 100%, 20%, 0) 70%) 0 0;
  background-color: #300;
  background-size: 72px 72px;
+}
+.pt {
+ position: fixed;
+ z-index: 1;
+ height: 100vh;
+ width:  100%;
+ max-width: 640px;
+ margin: 0 auto;
 }
 
 .pt .tm {
