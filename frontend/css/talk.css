@@ -25,7 +25,7 @@
 }
 
 body {
- background: var(--bsod); 
+ background: var(--r1); 
  color: var(--whit); 
 }
 .twelve { height: 13rem; }
@@ -45,7 +45,7 @@ body {
  margin-top: 1px;
  margin-bottom: -4px;
  padding: 0 1rem;
- border: 2px dashed var(--dots); 
+ border: 1px solid var(--r6); 
  -webkit-transition: background 0.6s ease-out; 
  transition: background 0.6s ease-out;
 }
@@ -53,14 +53,18 @@ body {
 #tweet {
  position: fixed;
  z-index: 997;
- right: 1.6rem; top: 1.5rem;
+ right: 1.6rem; top: 1.5rem; 
 }
 #tweet .but {
  color: var(--bsod); 
  background: var(--red1); 
+ -webkit-transition: -webkit-transform .4s ease-in-out;
+ transition: transform .4s ease-in-out;
 }
 #tweet .but:hover {
  background: var(--red2); 
+ -webkit-transition: rotate(3deg);
+ transform: rotate(3deg);
 }
 #tweet .bbk {
  text-decoration: line-through;
@@ -121,8 +125,8 @@ form textarea {
 #notes .one {
  padding: 0 1rem;
  text-align: left;
- border-left: 2px dashed var(--dots); 
- border-right: 2px solid var(--bsod); 
+ border-left: 1px solid var(--r6); 
+ border-right: 1px solid var(--r1); 
  overflow-wrap: break-word;
 }
 #notes .one small {
@@ -171,11 +175,14 @@ form textarea {
  left: -1.1rem;
  width: calc(100% + 2.0rem);
 }
-
+#notes .one .footer {
+ width: calc(100% + 1.8rem);
+}
 .footer .but {
  color: var(--blck); 
  background: var(--whit); 
 }
+
 #notes .one .footer .but {
  padding-top: 3px;
  padding-bottom: 2px;
@@ -316,7 +323,7 @@ form textarea {
  padding-left: 0.6rem;
  padding-right: 0.4rem;
  margin-right: 0.5rem;
- border-bottom: 2px dashed var(--dots); 
+ border-bottom: 1px solid var(--r6); 
 }
 
 .dark small, .room small {

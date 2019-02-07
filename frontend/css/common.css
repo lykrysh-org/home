@@ -172,9 +172,9 @@ small .but {
  pointer-events:none; 
  position: relative;
  display:block;
- max-width: 37rem;
+ max-width: calc(37rem - 2px);
  margin: 0 auto; 
- width: calc(100% - 2rem - 6px);
+ width: calc(100% - 2rem - 8px);
 }
 .bbox.top12 {
  margin-top: 1.2rem;

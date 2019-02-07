@@ -116,7 +116,7 @@ $(document).ready(function() {
 
   $('.newchunk').hover(function() {
     var th = $(this).children(".f10").children(".me");
-    th.css('background', 'black');
+    th.css('background', '#200');
   }, function() {
     var th = $(this).children(".f10").children(".me");
     th.css('background', 'none');
@@ -126,12 +126,12 @@ $(document).ready(function() {
 
   $('ul').on('mouseenter', '.ff', function() {
     var th = $(this).children(".xx").children(".me");
-    th.prev(".abv").show();
-    th.css('background', 'black');
+    //th.prev(".abv").show();
+    th.css('background', '#200');
   });
   $('ul').on('mouseleave', '.ff', function() {
     var th = $(this).children(".xx").children(".me");
-    th.prev(".abv").hide();
+    //th.prev(".abv").hide();
     th.css('background', 'none');
   });
 
@@ -805,16 +805,19 @@ $(document).ready(function() {
   $('ul').on('click', '.edit', function() {
     var th = $(this);
     var p = th.parent();
-    var r = p.children(".room");
-    var c = p.children(".count");
+    var r = p.children(".room"), c = p.children(".count");
     p.parent().siblings(".rpf").hide();
+    var edf = p.parent().siblings(".edf");
+    var me = edf.children(".f20").children(".me");
     if( (c.text() == "o") || (c.text() == "e") ) {
+      me.prev(".abv").hide();
       r.hide();
       c.text("n");
       th.removeClass("bbk");
     } else {
       th.siblings(".but").each(function() { $(this).removeClass("bbk"); });
       r.show();
+      me.prev(".abv").show();
       r.find("input[name=password]")[0].focus();
       c.text("e");
       th.addClass("bbk");
@@ -847,18 +850,20 @@ $(document).ready(function() {
   $('ul').on('click', '.reply', function() {
     var th = $(this);
     var p = th.parent();
-    var r = p.children(".room");
-    var c = p.children(".count");
+    var r = p.children(".room"), c = p.children(".count");
     r.hide();
+    var rpf = p.parent().siblings(".rpf");
+    var me = rpf.children(".f30").children(".me");
     if( c.text() == "r" ) {
-      p.parent().siblings(".rpf").hide();
+      me.prev(".abv").hide();
+      rpf.hide();
       c.text("n");
       th.removeClass("bbk");
-    } else {
+    } else { 
       th.siblings(".but").each(function() { $(this).removeClass("bbk"); });
-      var rpf = p.parent().siblings(".rpf");
       rpf.show();
-      rpf.children(".f30").children(".me").find("textarea[name=description]")[0].focus();
+      me.prev(".abv").show();console.log("show!");
+      me.find("textarea[name=description]")[0].focus();
       c.text("r");
       th.addClass("bbk");
       sety();
