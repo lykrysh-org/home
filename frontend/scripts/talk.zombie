@@ -116,7 +116,7 @@ $(document).ready(function() {
 
   $('.newchunk').hover(function() {
     var th = $(this).children(".f10").children(".me");
-    th.css('background', '#200');
+    th.css('background', 'rgba(170,0,0,0.05)');
   }, function() {
     var th = $(this).children(".f10").children(".me");
     th.css('background', 'none');
@@ -127,7 +127,7 @@ $(document).ready(function() {
   $('ul').on('mouseenter', '.ff', function() {
     var th = $(this).children(".xx").children(".me");
     //th.prev(".abv").show();
-    th.css('background', '#200');
+    th.css('background', 'rgba(170,0,0,0.05)');
   });
   $('ul').on('mouseleave', '.ff', function() {
     var th = $(this).children(".xx").children(".me");

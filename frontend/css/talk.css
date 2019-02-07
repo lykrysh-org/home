@@ -26,7 +26,7 @@
 
 body {
  background: var(--r1); 
- color: var(--whit); 
+ color: var(--red4); 
 }
 .twelve { height: 13rem; }
 .top34 { margin-top: 3.4rem; }
@@ -35,6 +35,10 @@ body {
 
 #main {
  padding-top: 84px;
+ width:  100%;
+ max-width: 640px;
+ margin: 0 auto;
+ text-align: center;
 }
 
 .newchunk {
@@ -70,12 +74,12 @@ body {
  text-decoration: line-through;
 }
 #newblk {
- z-index: 5;
- background: rgba(8,8,8,0.9);
+ z-index: 15;
+ background: rgba(17,0,0,0.9);
 }
 #guard {
  position: fixed;
- z-index: 6;
+ z-index: 16;
  margin-top: 84px;
  padding-bottom: 4rem;
  width: 100%;
@@ -91,10 +95,11 @@ form textarea, form input {
  color: var(--whit); 
 }
 
-::-webkit-input-placeholder { color: var(--hold) }
-::-moz-placeholder { color: var(--hold) }
-:-ms-input-placeholder { color: var(--hold) }
-:-moz-placeholder { color: var(--hold) }
+form input::-webkit-input-placeholder { color: var(--red3) }
+form input::-moz-placeholder { color: var(--red3) }
+form input:-ms-input-placeholder { color: var(--red3) }
+form input:-moz-placeholder { color: var(--red3) }
+form input::placeholder { color: var(--red3) }
 
 form textarea {
  resize: vertical;
@@ -104,8 +109,11 @@ form textarea {
 }
 
 #notes {
+ position: absolute;
+ z-index: 10;
+ min-height: 105vh;
  width: 100%;
- text-align: center;
+ max-width: 640px;
  margin-bottom: 3rem;
 }
 #notes .one.space {
@@ -118,9 +126,11 @@ form textarea {
 #notes .edf {
  position: relative;
  margin-bottom: 10px;
+ margin-top: 12px;
 }
 #notes .rpf {
  margin-bottom: 10px;
+ margin-top: 12px;
 }
 #notes .one {
  padding: 0 1rem;
@@ -128,6 +138,9 @@ form textarea {
  border-left: 1px solid var(--r6); 
  border-right: 1px solid var(--r1); 
  overflow-wrap: break-word;
+}
+#notes .one .signt {
+ color: var(--red1); 
 }
 #notes .one small {
  font-size: 13px;
@@ -155,7 +168,7 @@ form textarea {
 }
 #notes .bbox .good {
  position: absolute;
- z-index: 3;
+ z-index: 13;
  left: 0;
 }
 
@@ -180,12 +193,12 @@ form textarea {
 }
 .footer .but {
  color: var(--blck); 
- background: var(--whit); 
+ background: var(--red0); 
 }
 
 #notes .one .footer .but {
  padding-top: 3px;
- padding-bottom: 2px;
+ padding-bottom: 3px;
  line-height: 1rem;
 }
 .footer .op2:hover { opacity: 0.5; }
@@ -199,11 +212,12 @@ form textarea {
  height: 1.5rem;
 }
 .footer .flag {
- background: var(--red2);
+ background: var(--red4);
+ margin-right: 2px;
 }
 .footer .flag .flagnum {
- color: #cc0000;
- padding-left: 0.2rem;
+ color: var(--r6);
+ padding-left: 0.4rem;
 }
 .footer .flag img {
  height: 14px; 
@@ -214,7 +228,7 @@ form textarea {
 
 .footer .leftbut {
  position: absolute;
- z-index: 2;
+ z-index: 12;
  top: 0rem; left: 0.3rem;
  width: 6.2rem;
  height: 4rem;
@@ -231,12 +245,12 @@ form textarea {
 }
 .footer .leftbut .yup {
  position: absolute;
- z-index: 3;
+ z-index: 13;
  left: 2rem; 
 }
 .footer .leftbut .yup small {
  font-size: 13px;
- line-height: 21px;
+ line-height: 22px;
 }
 .footer .leftbut .yup .zero {
  opacity: 0.0;
@@ -247,7 +261,7 @@ form textarea {
 
 .footer .leftbut .ox .wrap {
  position: absolute;
- z-index: 4;
+ z-index: 14;
  width: 5rem; left: 0; top: 0;
  height: 100%;
  background-repeat: no-repeat;
@@ -258,7 +272,7 @@ form textarea {
 }
 .footer .leftbut .ox .x {
  position: absolute;
- z-index: 4;
+ z-index: 14;
  width: 1.2rem; left: 5rem; top: 0;
  height: 1.2rem;
  background: var(--blck);
@@ -275,7 +289,7 @@ form textarea {
 
 .footer .rightbut {
  position: absolute;
- z-index: 3;
+ z-index: 13;
  text-align: right;
  top: -0.4rem; right: 3.5rem; height: 1.5rem;
  background:none;
@@ -287,11 +301,11 @@ form textarea {
 
 .footer .comment {
  position: absolute;
- z-index: 3;
+ z-index: 13;
  display: inline-block;
- top: -0.1rem; right: 0; height: 1.5rem;
+ top: -0.1rem; right: 0; height: 1.6rem;
  padding: 0px 12px; 
- background: var(--whit);
+ background: var(--red1);
 }
 .footer .comment:hover {
  background: var(--red2); 
