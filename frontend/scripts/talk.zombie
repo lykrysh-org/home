@@ -50,8 +50,8 @@ $(document).ready(function() {
       var sm = oe.children(".signt");
       sm.children(".whenposted").text(posted);
       sm.children(".person").text(whosent);
-      sm.children(".rootnum").text(rootnum); // rm later
-      sm.children(".replnum").text(replnum); // rm later
+      //sm.children(".rootnum").text(rootnum); // rm later
+      //sm.children(".replnum").text(replnum); // rm later
       temp.children(".rootn").text(rootnum);
       temp.children(".repln").text(replnum);
       if (Number(flag) > 0) {
@@ -443,8 +443,8 @@ $(document).ready(function() {
             var sm = oe.children(".signt");
             sm.children(".whenposted").text(rs.posted.substr(0, 10));
             sm.children(".person").text(dataXx.whosent);
-            sm.children(".rootnum").text(rs.rootnum); // rm later
-            sm.children(".replnum").text(rs.replnum); // rm later
+            //sm.children(".rootnum").text(rs.rootnum); // rm later
+            //sm.children(".replnum").text(rs.replnum); // rm later
             temp.children(".rootn").text(rs.rootnum);
             temp.children(".repln").text(rs.replnum);
             var e = temp.children(".edf");
@@ -564,8 +564,8 @@ $(document).ready(function() {
             var sm = oe.children(".signt");
             sm.children(".whenposted").text(rs.posted.substr(0, 10));
             sm.children(".person").text(dataXx.whosent);
-            sm.children(".rootnum").text(rs.rootnum); // rm later
-            sm.children(".replnum").text(rs.replnum); // rm later
+            //sm.children(".rootnum").text(rs.rootnum); // rm later
+            //sm.children(".replnum").text(rs.replnum); // rm later
             temp.children(".rootn").text(rs.rootnum);
             temp.children(".repln").text(rs.replnum);
             var e = temp.children(".edf");
