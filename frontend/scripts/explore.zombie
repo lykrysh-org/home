@@ -106,7 +106,7 @@ $(document).ready(function() {
             if (data.reference.trim().length > 0) {
               temp.append('<small class="ln2 serious"></small>');
               var myln2 = temp.children('.ln2');
-              myln2.append('REFERENCE: ' + data.reference);
+              myln2.append('Reference: ' + data.reference);
             }
             showbox.append(temp);
             showbox.append('<div class="pc n" id="gobk"><img src="/static/pics/arrw.png"></div>')

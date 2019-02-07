@@ -16,6 +16,15 @@ body {
  border-top: 2px dashed var(--dots); 
  padding-top: 0.8rem;
 }
+#main .tell .each a {
+ color: var(--whit); 
+ text-decoration: none;
+ background: var(--hold);
+}
+#main .tell .each a:hover {
+ background: #666;
+ color: var(--blck); 
+}
 #main .tell .each ul {
  list-style-type: square;
  margin-top: 0px;

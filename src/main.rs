@@ -93,4 +93,3 @@ fn main() {
     server::new(app).bind("localhost:8088").unwrap().start();
     let _ = system.run();
 }
-
