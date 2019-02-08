@@ -192,7 +192,7 @@ body {
 #gurd form {
  position: relative;
  z-index: 17;
- margin-top: 81px;
+ margin-top: 36px;
  margin-left: 1.5rem;
  margin-right: 1.5rem;
 }
@@ -205,7 +205,8 @@ body {
  text-align: center;
 }
 #gurd .bt2 small {
- font-size: 16px;
+ color: var(--r1); 
+ font-size: 18px;
  line-height: 5rem;
 }
 
@@ -213,7 +214,7 @@ body {
  margin: 0 auto;
  width: 5rem; height: 5rem;
  border-radius: 50%;
- border: 2px solid var(--blck); 
+ border: 2px solid var(--r1); 
  pointer-events: none;
 
 }
@@ -258,6 +259,9 @@ body {
 }
 .ck:hover {
  background: var(--r2); 
+}
+.ck .world {
+ font-size: 13px; line-height: 13px;
 }
 .ck input {
   position: absolute;
@@ -322,7 +326,7 @@ body {
   text-align: left;
   text-indent: 10px;
   margin: 0 auto;
-  margin-top: 42px;
+  margin-top: 32px;
   color: var(--blck); 
 }
 .sr .d_s {
@@ -360,8 +364,6 @@ body {
   width: 1.2rem; height: 1.2rem;
   background: url("../pics/arrowdownblack.png") no-repeat;
   background-size: 1.2rem 1.2rem;
-}
-.sr:hover .d_a {
 }
 .sr .d_a.active {
   background: url("../pics/dummy.png") no-repeat;
