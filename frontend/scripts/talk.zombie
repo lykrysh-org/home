@@ -314,6 +314,7 @@ $(document).ready(function() {
       var addr = $(this).val();
       var xx = $(this).parent().parent().parent();
 
+alert("here");
       // Check if this img link exists
       objImg = new Image();
       objImg.src = addr;
@@ -322,7 +323,7 @@ $(document).ready(function() {
         xx.children("input[name=hasimg]").val("2");
       };
       objImg.onerror = function() {
-        //alert("error");
+        alert("not an img");
         // just black .wrap
       };
 

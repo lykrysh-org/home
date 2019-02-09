@@ -57,7 +57,7 @@
                 </div>
               </form>
               <form class="f21 yy" method="post" enctype="multipart/form-data">
-                <input id="chEXXX" class="shc34 chs" type="file" name="file" accept="image/*, video/*" />
+                <input id="chEXXX" class="shc34 chs" type="file" name="file" accept="image/*" />
               </form>
             </div>
             <!-- REPLY form -->
@@ -101,6 +101,6 @@
                 </div>
               </form>
               <form class="f31 yy" method="post" enctype="multipart/form-data">
-                <input id="chsXXX" class="shc34 chs" type="file" name="file" accept="image/*, video/*" />
+                <input id="chsXXX" class="shc34 chs" type="file" name="file" accept="image/*" />
               </form>
             </div>
