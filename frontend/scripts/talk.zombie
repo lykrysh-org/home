@@ -391,8 +391,8 @@ alert(addr);
       var trouble = false;
       var msg = '';
       if ($.trim(xx.find(".dsc").val()) === '') { msg += 'Any text?<br>'; trouble = true; };
-      if ($.trim(xx.find(".who").val()) === '') { msg += 'Your name?<br>'; trouble = true; };
-      if ($.trim(xx.find(".scr").val()) === '') { msg += 'Secret key?<br>'; trouble = true; };
+      if ($.trim(xx.find(".who").val()) === '') { msg += '<img class="mini id" src="/static/pics/id.png">Your name?<br>'; trouble = true; };
+      if ($.trim(xx.find(".scr").val()) === '') { msg += '<img class="mini key" src="/static/pics/key.png">Secret key?<br>'; trouble = true; };
       if (trouble) {
         $('#dummy #bugbug').html('<p><img src="/static/pics/bot.png"><br>' + msg + '<\p>');
         e.preventDefault();
@@ -510,8 +510,8 @@ alert(addr);
       var trouble = false;
       var msg = '';
       if ($.trim(xx.find(".dsc").val()) === '') { msg += 'Any text?<br>'; trouble = true; };
-      if ($.trim(xx.find(".who").val()) === '') { msg += 'Your name?<br>'; trouble = true; };
-      if ($.trim(xx.find(".scr").val()) === '') { msg += 'Secret key?<br>'; trouble = true; };
+      if ($.trim(xx.find(".who").val()) === '') { msg += '<img class="mini id" src="/static/pics/id.png">Your name?<br>'; trouble = true; };
+      if ($.trim(xx.find(".scr").val()) === '') { msg += '<img class="mini key" src="/static/pics/key.png">Secret key?<br>'; trouble = true; };
       if (trouble) {
         $('#dummy #bugbug').html('<p><img src="/static/pics/bot.png"><br>' + msg + '<\p>');
         e.preventDefault();

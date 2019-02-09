@@ -119,4 +119,16 @@
 }
 #dummy #bugbug p {
  margin-bottom: 8rem;
+ line-height: 3rem;
+}
+#dummy #bugbug p .mini{
+ width: 1.8rem; height: 1.6rem;
+}
+#dummy #bugbug p .id{
+ vertical-align: -23px;
+ margin-right: 6px;
+}
+#dummy #bugbug p .key{
+ vertical-align: -23px;
+ margin-right: 8px;
 }
