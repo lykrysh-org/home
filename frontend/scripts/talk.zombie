@@ -314,7 +314,7 @@ $(document).ready(function() {
       var addr = $(this).val();
       var xx = $(this).parent().parent().parent();
 
-alert("here");
+alert(addr);
       // Check if this img link exists
       objImg = new Image();
       objImg.src = addr;
