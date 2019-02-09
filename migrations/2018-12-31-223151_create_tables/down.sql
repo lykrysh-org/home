@@ -1,9 +1,0 @@
-DROP TABLE ipaddrs;
-DROP TABLE chats;
-DROP TABLE csecrets;
-DROP TABLE cflags;
-DROP TABLE historychats;
-DROP TABLE shows;
-DROP TABLE smakers;
-DROP TABLE sclicks;
-DROP TABLE spages;

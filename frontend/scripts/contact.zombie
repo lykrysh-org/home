@@ -1,3 +1,0 @@
-$(document).ready(function() {
-   $('#main .email').load('/stuff/text/contact.private', function(){});
-});
