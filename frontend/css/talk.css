@@ -152,16 +152,22 @@ form textarea {
 }
 #notes .one .pic {
  margin-top: 7px;
+ margin-bottom: 12px;
  width: calc(100% + 0.8rem);
 }
 #notes .one .pic img {
  max-width: 100%;
  max-height: 420px;
 }
-#notes .one .pic iframe {
+#notes .one .pic .frm {
+ overflow: hidden;
+ height: 420px;
+}
+#notes .one .pic .frm .dailymotion {
  width: 640px;
  max-width: 100%;
- height: 420px;
+ height: 620px;
+ margin-top: -100px;
 }
 #notes .one .bksm a {
  color: var(--bsod); 

@@ -68,7 +68,7 @@ $(document).ready(function() {
       if (attached != "none") {
         var bg;
         if (attached.startsWith('https://www.dailymotion.com/embed/video/')) {
-          oe.children(".pic").html('<iframe frameborder="0" src=' + attached + '></iframe>');
+          oe.children(".pic").html('<div class="frm"><iframe class="dailymotion" frameborder="0" src=' + attached + '></iframe></div>');
           bg = "url(/static/pics/play_off.png)";
         } 
         else {
@@ -466,7 +466,7 @@ $(document).ready(function() {
             if (rs.attached != "none") {
               var bg;
               if (rs.attached.startsWith('https://www.dailymotion.com/embed/video/')) {
-                oe.children(".pic").html('<iframe frameborder="0" src=' + rs.attached + '></iframe>');
+                oe.children(".pic").html('<div class="frm"><iframe class="dailymotion" frameborder="0" src=' + rs.attached + '></iframe></div>');
                 bg = "url(/static/pics/play_off.png)";
               } 
               else {
@@ -592,7 +592,7 @@ $(document).ready(function() {
             if (rs.attached != "none") {
               var bg;
               if (rs.attached.startsWith('https://www.dailymotion.com/embed/video/')) {
-                oe.children(".pic").html('<iframe frameborder="0" src=' + rs.attached + '></iframe>');
+                oe.children(".pic").html('<div class="frm"><iframe class="dailymotion" frameborder="0" src=' + rs.attached + '></iframe></div>');
                 bg = "url(/static/pics/play_off.png)";
               }
               else {
@@ -714,11 +714,22 @@ $(document).ready(function() {
           } else {
             var bg;
             if (lk == "same") {
-              var url = oe.children(".pic").children("img").attr('src');
-              bg = "url(" +  url + ")";
+              var url;
+              if (oe.children(".pic").children(".frm").length) {
+                url = oe.children(".pic").children(".frm").children(".dailymotion").attr('src');
+                bg = "url(/static/pics/play_off.png)";
+              } else {
+                url = oe.children(".pic").children("img").attr('src');
+                bg = "url(" +  url + ")";
+              }
             } else {
-              oe.children(".pic").html("<img src=" + lk + ">");
-              bg = "url(" +  lk + ")";
+              if (lk.startsWith('https://www.dailymotion.com/embed/video/')) {
+                oe.children(".pic").html('<div class="frm"><iframe class="dailymotion" frameborder="0" src=' + attached + '></iframe></div>');
+                bg = "url(/static/pics/play_off.png)";
+              } else {
+                oe.children(".pic").html("<img src=" + lk + ">");
+                bg = "url(" +  lk + ")";
+              }
             }
             hi.val("4");
             ox.children(".wrap").css('background-image', bg);
