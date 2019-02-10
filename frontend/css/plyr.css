@@ -390,7 +390,7 @@ left:auto;right:16px;-webkit-transform:translateX(50%);transform:translateX(50%)
   border-radius:100px
 }
 .plyr__progress--played,.plyr__volume--display{
-  z-index:21;color:#ff66ee;
+  z-index:21;color:#ff6678;
   background:0 0;
   -webkit-transition:none;transition:none
 }
