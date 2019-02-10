@@ -724,7 +724,7 @@ $(document).ready(function() {
               }
             } else {
               if (lk.startsWith('https://www.dailymotion.com/embed/video/')) {
-                oe.children(".pic").html('<div class="frm"><div class="play"></div><iframe class="dailymotion" frameborder="0" src=' + attached + '></iframe></div>');
+                oe.children(".pic").html('<div class="frm"><div class="play"></div><iframe class="dailymotion" frameborder="0" src=' + lk + '></iframe></div>');
                 bg = "url(/static/pics/play_off.png)";
               } else {
                 oe.children(".pic").html("<img src=" + lk + ">");
@@ -782,7 +782,7 @@ $(document).ready(function() {
         success: function(response){
           var state = response.state;
           if (state == "wrong") {
-            $('#dummy #bugbug').html('<p><img src="/static/pics/bot.png"><br>Wrong Password<\p>');
+            $('#dummy #bugbug').html('<p><img src="/static/pics/bot.png"><br><img class="mini key" src="/static/pics/key.png">Wrong Password<\p>');
             th.val("");
           } else if (state == "deleted") {
             var ll = r.parent().parent().parent().parent().parent().find(".li" + taskid);
