@@ -55,10 +55,10 @@ pub fn taste(req: HttpRequest<AppState>) -> FutureResponse<HttpResponse> {
 #[derive(Template)]
 #[template(path = "explore.html")]
 struct ExplTemplate {
-    horror: bool,
-    wet: bool,
-    poetic: bool,
-    weird: bool,
+    cat1: bool,
+    cat2: bool,
+    cat3: bool,
+    cat4: bool,
     sort: u8,
 }
 
@@ -78,27 +78,27 @@ pub fn expl(
            .to_owned())
     };
     struct Temp {
-        horror: bool,
-        wet: bool,
-        poetic: bool,
-        weird: bool,
+        cat1: bool,
+        cat2: bool,
+        cat3: bool,
+        cat4: bool,
         sort: u8,
     };
     let mut temp: Temp = Temp {
-        horror: true,
-        wet: true,
-        poetic: true,
-        weird: true,
+        cat1: true,
+        cat2: true,
+        cat3: true,
+        cat4: true,
         sort: 0, 
     };
     if query.len() > 0 {
         let mut chkd: u8 = 0;
-        if let Some(_) = query.get("horror") { chkd = chkd + 1; } else { temp.horror = false };
-        if let Some(_) = query.get("wet") { chkd = chkd + 1; } else { temp.wet = false };
-        if let Some(_) = query.get("poetic") { chkd = chkd + 1; } else { temp.poetic = false };
-        if let Some(_) = query.get("weird") { chkd = chkd + 1; } else { temp.weird = false };
+        if let Some(_) = query.get("cat1") { chkd = chkd + 1; } else { temp.cat1 = false };
+        if let Some(_) = query.get("cat2") { chkd = chkd + 1; } else { temp.cat2 = false };
+        if let Some(_) = query.get("cat3") { chkd = chkd + 1; } else { temp.cat3 = false };
+        if let Some(_) = query.get("cat4") { chkd = chkd + 1; } else { temp.cat4 = false };
         if chkd == 0 {
-            temp.horror = true; temp.wet = true; temp.poetic = true; temp.weird = true;
+            temp.cat1 = true; temp.cat2 = true; temp.cat3 = true; temp.cat4 = true;
         };
         temp.sort = if let Some(_s) = query.get("sort") { _s.parse().unwrap_or(0) } else { 0 };
     }
@@ -115,10 +115,10 @@ pub fn expl(
                     req.remember(id)
                 };
                 let s = ExplTemplate {
-                    horror: temp.horror,
-                    wet: temp.wet,
-                    poetic: temp.poetic,
-                    weird: temp.weird,
+                    cat1: temp.cat1,
+                    cat2: temp.cat2,
+                    cat3: temp.cat3,
+                    cat4: temp.cat4,
                     sort: temp.sort,
                 }.render().unwrap();
                 Ok(HttpResponse::Ok().body(s))

@@ -79,11 +79,11 @@ table! {
         still -> Bool,
         graph -> Bool,
         anime -> Bool,
-        sculp -> Bool,
-        scary -> Bool,
-        wet -> Bool,
-        poetic -> Bool,
-        weird -> Bool,
+        illeg -> Bool,
+        cat1 -> Bool,
+        cat2 -> Bool,
+        cat3 -> Bool,
+        cat4 -> Bool,
     }
 }
 

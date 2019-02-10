@@ -62,11 +62,11 @@ CREATE TABLE shows (
   still boolean default false not null,
   graph boolean default false not null,
   anime boolean default false not null,
-  sculp boolean default false not null,
-  scary boolean default false not null,
-  wet boolean default false not null,
-  poetic boolean default false not null,
-  weird boolean default false not null
+  illeg boolean default false not null,
+  cat1 boolean default false not null,
+  cat2 boolean default false not null,
+  cat3 boolean default false not null,
+  cat4 boolean default false not null
 );
 
 create table smakers (

@@ -38,10 +38,10 @@ pub fn explsql(
     let mut sort: u8 = 0;
     let mut media: Option<u8> = None;
     if query.len() > 0 {
-        if let Some(_) = query.get("horror") {categories.push(0)};
-        if let Some(_) = query.get("wet") {categories.push(1)};
-        if let Some(_) = query.get("poetic") {categories.push(2)};
-        if let Some(_) = query.get("weird") {categories.push(3)};
+        if let Some(_) = query.get("cat1") {categories.push(0)};
+        if let Some(_) = query.get("cat2") {categories.push(1)};
+        if let Some(_) = query.get("cat3") {categories.push(2)};
+        if let Some(_) = query.get("cat4") {categories.push(3)};
         sort = if let Some(_s) = query.get("sort") { _s.parse().unwrap_or(0) } else { 0 };
         media = match query.get("media") {
             Some(m) => {

@@ -21,7 +21,6 @@ $(document).ready(function() {
           var still = this.oneshow.still;
           var graph = this.oneshow.graph;
           var anime = this.oneshow.anime;
-          var sculp = this.oneshow.sculp;
 
           temp.load('/static/scripts/first6_section.zombie', function() {
 
@@ -38,7 +37,6 @@ $(document).ready(function() {
             if (still) { mediabut.append('<span class="media">Photography</span>') };
             if (graph) { mediabut.append('<span class="media">Graphic Novel</span>') };
             if (anime) { mediabut.append('<span class="media">Animation</span>') };
-            if (sculp) { mediabut.append('<span class="media">Sculpture</span>') };
           });
           main.append(temp);
         });

@@ -20,11 +20,11 @@ pub struct Show {
     pub still: bool,
     pub graph: bool,
     pub anime: bool,
-    pub sculp: bool,
-    pub scary: bool,
-    pub wet: bool,
-    pub poetic: bool,
-    pub weird: bool,
+    pub illeg: bool,
+    pub cat1: bool,
+    pub cat2: bool,
+    pub cat3: bool,
+    pub cat4: bool,
 }
 
 #[derive(Identifiable, Queryable, Associations, PartialEq, Debug)]
@@ -73,22 +73,25 @@ impl Show {
         use crate::schema::shows::dsl::*;
         let mut qr = shows.into_boxed();
         println!("{:?}", ass.categories);
-        if ass.categories.len() > 0 && ass.categories.len() < 4 {
+        if ass.categories.len() == 0 {
+            qr = qr.filter(illeg.eq(false))
+        }
+        else if ass.categories.len() > 0 && ass.categories.len() < 4 {
             let mut cat = ass.categories.clone();
             match cat[0] {
-                0 => qr = qr.filter(scary),
-                1 => qr = qr.filter(wet),
-                2 => qr = qr.filter(poetic),
-                3 => qr = qr.filter(weird),
+                0 => qr = qr.filter(cat1),
+                1 => qr = qr.filter(cat2),
+                2 => qr = qr.filter(cat3),
+                3 => qr = qr.filter(cat4),
                 _ => println!("impossible"),
             }
             cat.remove(0);
             for c in cat {
                 match c {
-                    0 => qr = qr.or_filter(scary),
-                    1 => qr = qr.or_filter(wet),
-                    2 => qr = qr.or_filter(poetic),
-                    3 => qr = qr.or_filter(weird),
+                    0 => qr = qr.or_filter(cat1),
+                    1 => qr = qr.or_filter(cat2),
+                    2 => qr = qr.or_filter(cat3),
+                    3 => qr = qr.or_filter(cat4),
                     _ => println!("unknown category"),
                 }
             }
