@@ -160,8 +160,21 @@ form textarea {
  max-height: 420px;
 }
 #notes .one .pic .frm {
+ position: relative;
+ z-index: 19;
  overflow: hidden;
  height: 420px;
+}
+#notes .one .pic .frm:hover .play {
+ pointer-events: none;
+ position: absolute;
+ z-index: 20;
+ width: 100%; height: 100%;
+ background-repeat: no-repeat;
+ background-position: center;
+ background-size: 5rem 5rem;
+ background-origin: content-box, padding-box;
+ background-image: url(/static/pics/video.png);
 }
 #notes .one .pic .frm .dailymotion {
  width: 640px;

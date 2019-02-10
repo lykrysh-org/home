@@ -68,7 +68,7 @@ $(document).ready(function() {
       if (attached != "none") {
         var bg;
         if (attached.startsWith('https://www.dailymotion.com/embed/video/')) {
-          oe.children(".pic").html('<div class="frm"><iframe class="dailymotion" frameborder="0" src=' + attached + '></iframe></div>');
+          oe.children(".pic").html('<div class="frm"><div class="play"></div><iframe class="dailymotion" frameborder="0" src=' + attached + '></iframe></div>');
           bg = "url(/static/pics/play_off.png)";
         } 
         else {
@@ -466,7 +466,7 @@ $(document).ready(function() {
             if (rs.attached != "none") {
               var bg;
               if (rs.attached.startsWith('https://www.dailymotion.com/embed/video/')) {
-                oe.children(".pic").html('<div class="frm"><iframe class="dailymotion" frameborder="0" src=' + rs.attached + '></iframe></div>');
+                oe.children(".pic").html('<div class="frm"><div class="play"></div><iframe class="dailymotion" frameborder="0" src=' + rs.attached + '></iframe></div>');
                 bg = "url(/static/pics/play_off.png)";
               } 
               else {
@@ -592,7 +592,7 @@ $(document).ready(function() {
             if (rs.attached != "none") {
               var bg;
               if (rs.attached.startsWith('https://www.dailymotion.com/embed/video/')) {
-                oe.children(".pic").html('<div class="frm"><iframe class="dailymotion" frameborder="0" src=' + rs.attached + '></iframe></div>');
+                oe.children(".pic").html('<div class="frm"><div class="play"></div><iframe class="dailymotion" frameborder="0" src=' + rs.attached + '></iframe></div>');
                 bg = "url(/static/pics/play_off.png)";
               }
               else {
@@ -724,7 +724,7 @@ $(document).ready(function() {
               }
             } else {
               if (lk.startsWith('https://www.dailymotion.com/embed/video/')) {
-                oe.children(".pic").html('<div class="frm"><iframe class="dailymotion" frameborder="0" src=' + attached + '></iframe></div>');
+                oe.children(".pic").html('<div class="frm"><div class="play"></div><iframe class="dailymotion" frameborder="0" src=' + attached + '></iframe></div>');
                 bg = "url(/static/pics/play_off.png)";
               } else {
                 oe.children(".pic").html("<img src=" + lk + ">");
