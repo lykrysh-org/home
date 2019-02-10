@@ -66,8 +66,15 @@ $(document).ready(function() {
       var e20 = e.children(".f20");
       var r = temp.children(".rpf");
       if (attached != "none") {
-        oe.children(".pic").html("<img src=" + attached + ">");
-        var bg = "url(" +  attached + ")";
+        var bg;
+        if (attached.startsWith('https://www.dailymotion.com/embed/video/')) {
+          oe.children(".pic").html('<iframe frameborder="0" src=' + attached + '></iframe>');
+          bg = "url(/static/pics/play_off.png)";
+        } 
+        else {
+          oe.children(".pic").html("<img src=" + attached + ">");
+          bg = "url(" +  attached + ")";
+        };
         var ox = e20.children(".busy").children(".footer").children(".leftbut").children(".ox");
         ox.children(".wrap").css('background-image', bg);
         ox.css('display', 'block');
@@ -313,23 +320,27 @@ $(document).ready(function() {
     if ( event.which == 13 ) {
       var addr = $(this).val();
       var xx = $(this).parent().parent().parent();
-
-alert(addr);
-      // Check if this img link exists
-      objImg = new Image();
-      objImg.src = addr;
-      objImg.onload = function() {
-        $(this).remove();
-        xx.children("input[name=hasimg]").val("2");
-      };
-      objImg.onerror = function() {
-        alert("not an img");
-        // just black .wrap
-      };
-
-      var full = "url('" + addr + "')";
       var ox = xx.children(".busy").find(".ox");
-      ox.children(".wrap").css('background-image', full);
+
+      if (addr.startsWith('https://www.dailymotion.com/embed/video/')) {
+        ox.children(".wrap").css('background-image', 'url(/static/pics/play_off.png)');
+        xx.children("input[name=hasimg]").val("2");
+      }
+      else {
+        // Check if this img link exists
+        objImg = new Image();
+        objImg.src = addr;
+        objImg.onload = function() {
+          $(this).remove();
+          xx.children("input[name=hasimg]").val("2");
+        };
+        objImg.onerror = function() {
+          console.log("not an img");
+          // just black .wrap
+        };
+        var full = "url('" + addr + "')";
+        ox.children(".wrap").css('background-image', full);
+      };
       ox.show();
       event.preventDefault(); // don't submit the entire form
     }
@@ -339,22 +350,27 @@ alert(addr);
     if ( event.which == 13 ) {
       var addr = $(this).val();
       var xx = $(this).parent().parent().parent();
-
-      // Check if this img link exists
-      objImg = new Image();
-      objImg.src = addr;
-      objImg.onload = function() {
-        $(this).remove();
-        xx.children("input[name=hasimg]").val("2");
-      };
-      objImg.onerror = function() {
-        //alert("error");
-        // just black .wrap
-      };
-
-      var full = "url('" + addr + "')";
       var ox = xx.children(".busy").find(".ox");
-      ox.children(".wrap").css('background-image', full);
+
+      if (addr.startsWith('https://www.dailymotion.com/embed/video/')) {
+        ox.children(".wrap").css('background-image', 'url(/static/pics/play_off.png)');
+        xx.children("input[name=hasimg]").val("2");
+      }
+      else {
+        // Check if this img link exists
+        objImg = new Image();
+        objImg.src = addr;
+        objImg.onload = function() {
+          $(this).remove();
+          xx.children("input[name=hasimg]").val("2");
+        };
+        objImg.onerror = function() {
+          console.log("not an img");
+          // just black .wrap
+        };
+        var full = "url('" + addr + "')";
+        ox.children(".wrap").css('background-image', full);
+      };
       ox.show();
       event.preventDefault(); // don't submit the entire form
     }
@@ -448,8 +464,15 @@ alert(addr);
             var r = temp.children(".rpf");
             var e20 = e.children(".f20");
             if (rs.attached != "none") {
-              oe.children(".pic").html("<img src=" + rs.attached + ">");
-              var bg = "url(" +  rs.attached + ")";
+              var bg;
+              if (rs.attached.startsWith('https://www.dailymotion.com/embed/video/')) {
+                oe.children(".pic").html('<iframe frameborder="0" src=' + rs.attached + '></iframe>');
+                bg = "url(/static/pics/play_off.png)";
+              } 
+              else {
+                oe.children(".pic").html("<img src=" + rs.attached + ">");
+                bg = "url(" +  rs.attached + ")";
+              };
               var ox = e20.children(".busy").children(".footer").children(".leftbut").children(".ox");
               ox.children(".wrap").css('background-image', bg);
               ox.css('display', 'block');
@@ -567,8 +590,15 @@ alert(addr);
             var r = temp.children(".rpf");
             var e20 = e.children(".f20");
             if (rs.attached != "none") {
-              oe.children(".pic").html("<img src=" + rs.attached + ">");
-              var bg = "url(" +  rs.attached + ")";
+              var bg;
+              if (rs.attached.startsWith('https://www.dailymotion.com/embed/video/')) {
+                oe.children(".pic").html('<iframe frameborder="0" src=' + rs.attached + '></iframe>');
+                bg = "url(/static/pics/play_off.png)";
+              }
+              else {
+                oe.children(".pic").html("<img src=" + rs.attached + ">");
+                bg = "url(" +  rs.attached + ")";
+              }
               var oxx = e.children(".f20").children(".busy").children(".footer").children(".leftbut").children(".ox");
               oxx.children(".wrap").css('background-image', bg);
               oxx.css('display', 'block');
@@ -857,7 +887,7 @@ alert(addr);
     } else { 
       th.siblings(".but").each(function() { $(this).removeClass("bbk"); });
       rpf.show();
-      me.prev(".abv").show();console.log("show!");
+      me.prev(".abv").show();
       me.find("textarea[name=description]")[0].focus();
       c.text("r");
       th.addClass("bbk");
